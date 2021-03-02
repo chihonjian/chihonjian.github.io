@@ -12,7 +12,7 @@
 
 
 
-<title>Python——关于pm2部署python服务logs乱码问题的解决 | 小健的日记</title>
+<title>攻防世界·WEB—view_source | 小健的日记</title>
 
 
 
@@ -205,7 +205,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Python——关于pm2部署python服务logs乱码问题的解决</h1>
+            <h1 class="post-title">攻防世界·WEB—view_source</h1>
             
                 <div class="post-meta">
                     
@@ -214,14 +214,14 @@
 
                     
                         <span class="post-time">
-                        日期: <a href="#">2021-02-13&nbsp;&nbsp;16:39:12</a>
+                        日期: <a href="#">2021-03-02&nbsp;&nbsp;18:12:56</a>
                         </span>
                     
                     
                         <span class="post-category">
                     分类:
                             
-                                <a href="/categories/%E9%BC%93%E6%8D%A3/">鼓捣</a>
+                                <a href="/categories/%E6%B8%97%E9%80%8F/">渗透</a>
                             
                         </span>
                     
@@ -233,25 +233,15 @@
         </header>
 
         <div class="post-content">
-            <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="问题情况"><a href="#问题情况" class="headerlink" title="问题情况"></a>问题情况</h3><p>我使用基于nodejs的pm2部署python服务的时候，发现python服务器输出的日志在pm2的logs中显示的乱码，windows情况下，情况如下：</p>
-<p><a href="./output-1.jpg" data-fancybox="group" data-caption="日志乱码"><img src="/2021/02/13/python-output/output-1.jpg"></a></p>
-<p>​    发现我输出的中文内容全部是乱码，会导致我看不到日志内容</p>
-<h3 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h3><p>​    导致这个问题的原因是因为python输出的编码内容与命令行的不对应，编码可能为:GB2312,GBK等，存在无法识别的中文的可能性</p>
-<p>​    python3.*版本中，print不仅仅是一个打印，它还是一个函数、方法。</p>
-<blockquote>
-<p>在python中,print语句实现打印，从技术角度来说，这是把一个或多个对象转换为其文本表达式形式，然后发送给标准输出流或者类似的文件流，更详细的说，打印与文件和流的概念紧密相连。</p>
-<p>我们都知道在python中，向一个文件写东西是通过类似file.write(str)方法实现的，而你可能没想到print语句执行的操作其实也是一个写操作，不过他把我们从外设输入的数据写到了stdout流，并进行了一些特定的格式化。当然，和文件方法不通，在执行打印操作是，不需要将对象转换为字符串（print已经帮我们做好了）。《 <a target="_blank" rel="noopener" href="https://blog.csdn.net/he_and/article/details/80675070">https://blog.csdn.net/he_and/article/details/80675070</a> 》</p>
-</blockquote>
-<h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><p>​    知道了问题所在，我可以重新sys.stdout的编码，强制为UTF-8的形式输出，python3版本中的filter类，我们可以重写这个类，代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">filter</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,target</span>):</span></span><br><span class="line">		self.target=target</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">write</span>(<span class="params">self,s</span>):</span></span><br><span class="line">		self.target.buffer.write(s.encode(<span class="string">&quot;utf-8&quot;</span>))</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">flush</span>(<span class="params">self</span>):</span></span><br><span class="line">		self.target.flush()</span><br><span class="line"></span><br><span class="line">sys.stdout=<span class="built_in">filter</span>(sys.stdout);</span><br></pre></td></tr></table></figure>
-<p>​    重写filter类，然后实例化它，并传入sys.stdout的输出流，则重写方法<code>write</code>以utf-8的方式重新写入buffer流，就能够让print所以的输出能够以utf-8的编码形式输出。</p>
-<p>​    后续，把这段代码封装成一个encodefix.py文件简单的引入所需要的模块中使用即可</p>
-<p><a href="./output-2.jpg" data-fancybox="group" data-caption="引入模块"><img src="/2021/02/13/python-output/output-2.jpg"></a></p>
-<h3 id="引入后的日志"><a href="#引入后的日志" class="headerlink" title="引入后的日志"></a>引入后的日志</h3><p>​    引入后，日志显示正常</p>
-<p><a href="./output-3.jpg" data-fancybox="group" data-caption="日志正常"><img src="/2021/02/13/python-output/output-3.jpg"></a></p>
-<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><blockquote>
-<p>发现在windows老是遇到一些奇奇怪怪的问题，记录一下，踩过的坑不能老是跌倒，顺便了解一下print的实现原理，还是挺有意思的。这个方法也是实验室大哥教的我，实在强悍，嘿嘿，就这样。</p>
-</blockquote>
+            <hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​    此题为入门题，主要是对chrom或者浏览器源码的审查以及使用，简单，做个记录</p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a href="./view-source-1.jpg" data-fancybox="group" data-caption="题目"><img src="/2021/03/02/adw-web-view_source/view-source-1.jpg"></a></p>
+<p>​    测试网站如图：</p>
+<p><a href="./view-source-2.jpg" data-fancybox="group" data-caption="网站"><img src="/2021/03/02/adw-web-view_source/view-source-2.jpg"></a></p>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>​    分析这个网页发现，这个网页你无法右击，无法审查源码，但我们可以使用chrom的F12来打开调试器，发现了这个段代码阻止了我们。</p>
+<p><a href="./view-source-3.jpg" data-fancybox="group" data-caption="调试器chrom"><img src="/2021/03/02/adw-web-view_source/view-source-3.jpg"></a></p>
+<p>​    这个简单屏蔽破解后，拿到flag</p>
+<p><a href="./view-source-4.jpg" data-fancybox="group" data-caption="flag"><img src="/2021/03/02/adw-web-view_source/view-source-4.jpg"></a></p>
 
         </div>
 
@@ -266,7 +256,7 @@
                 
                     <p class="copyright-item">
                         <span>文章链接:</span>
-                        <span><a href="http://chihongjian.cn/2021/02/13/python-output/">http://chihongjian.cn/2021/02/13/python-output/</a></span>
+                        <span><a href="http://chihongjian.cn/2021/03/02/adw-web-view_source/">http://chihongjian.cn/2021/03/02/adw-web-view_source/</a></span>
                     </p>
                 
                 
@@ -285,9 +275,9 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/python/"># python</a>
+                        <a href="/tags/%E6%B8%97%E9%80%8F/"># 渗透</a>
                     
-                        <a href="/tags/pm2/"># pm2</a>
+                        <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"># 网络安全</a>
                     
                         
                 </span>
@@ -300,10 +290,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/02/16/yiban-card-1/">对某平台APP的一点分析(1)——分析APP接口</a>
             
-            
-            <a class="next" rel="next" href="/2021/02/12/algorithm-cows/">算法——母牛的故事</a>
+            <a class="next" rel="next" href="/2021/02/16/yiban-card-1/">对某平台APP的一点分析(1)——分析APP接口</a>
             
         </section>
         <br>

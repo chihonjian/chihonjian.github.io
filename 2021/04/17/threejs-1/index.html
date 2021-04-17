@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Hans Jian">
+
+
+
+
+
+<title>Threejs学习之路——初识三要素、模型 | 小健的日记</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/js/love.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.js"></script>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.css">
+                
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">小健的个人小窝</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/categories/%E6%B8%97%E9%80%8F">渗透</a>
+                
+                    <a class="menu-item" href="/categories/%E7%AE%97%E6%B3%95">算法</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">小健的个人小窝</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; 菜单</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/categories/%E6%B8%97%E9%80%8F">渗透</a>
+                
+                    <a class="menu-item" href="/categories/%E7%AE%97%E6%B3%95">算法</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开目录</a>
+        <a onclick="go_top()">回到顶部</a>
+        <a onclick="go_bottom()">转去最低</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "收起目录"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "展开目录"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Threejs学习之路——初识三要素、模型</h1>
+            
+                <div class="post-meta">
+                    
+                        作者: <a itemprop="author" rel="author" href="/">Hans Jian</a>
+                    
+
+                    
+                        <span class="post-time">
+                        日期: <a href="#">2021-04-17&nbsp;&nbsp;16:06:59</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    分类:
+                            
+                                <a href="/categories/%E9%BC%93%E6%8D%A3/">鼓捣</a>
+                            
+                        </span>
+                    
+                        <span id="busuanzi_container_page_pv">
+                        &nbsp;本文总阅读量:<span style="color:#2d96bd" id="busuanzi_value_page_pv"></span><span style="color:#2d96bd">次</span>
+                        </span>
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="Threejs"><a href="#Threejs" class="headerlink" title="Threejs"></a>Threejs</h1><h2 id="渲染三要素"><a href="#渲染三要素" class="headerlink" title="渲染三要素"></a>渲染三要素</h2><ul>
+<li>场景（scene）</li>
+<li>相机(OrthographicCamera)</li>
+<li>渲染器(Renderer)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//新建一个场景对象</span></span><br><span class="line"><span class="keyword">var</span> scene = <span class="keyword">new</span> Scene();</span><br><span class="line"></span><br><span class="line"><span class="comment">//新建一个相机</span></span><br><span class="line"><span class="keyword">var</span> width = <span class="built_in">window</span>.innerWidth; <span class="comment">//窗口宽度</span></span><br><span class="line"><span class="keyword">var</span> height = <span class="built_in">window</span>.innerHeight; <span class="comment">//窗口高度</span></span><br><span class="line"><span class="keyword">var</span> k = width / height; <span class="comment">//窗口宽高比</span></span><br><span class="line"><span class="keyword">var</span> s = <span class="number">200</span>; <span class="comment">//三维场景显示范围控制系数，系数越大，显示的范围越大</span></span><br><span class="line"><span class="comment">//创建相机对象</span></span><br><span class="line"><span class="keyword">var</span> camera = <span class="keyword">new</span> THREE.OrthographicCamera(-s * k, s * k, s, -s, <span class="number">1</span>, <span class="number">1000</span>);</span><br><span class="line">camera.position.set(<span class="number">200</span>, <span class="number">300</span>, <span class="number">200</span>); <span class="comment">//设置相机位置</span></span><br><span class="line">camera.lookAt(scene.position); <span class="comment">//设置相机方向(指向的场景对象)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//新建渲染器</span></span><br><span class="line"><span class="keyword">var</span> renderer = <span class="keyword">new</span> THREE.WebGLRenderer();</span><br><span class="line">renderer.setSize(width, height);<span class="comment">//设置渲染区域尺寸</span></span><br><span class="line">renderer.setClearColor(<span class="number">0xb9d3ff</span>, <span class="number">1</span>); <span class="comment">//设置背景颜色</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="持续执行渲染器"><a href="#持续执行渲染器" class="headerlink" title="持续执行渲染器"></a>持续执行渲染器</h2><ul>
+<li>requestAnimationFrame()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> T1 = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> t = T1 - T0;</span><br><span class="line">    T0 = T1;</span><br><span class="line">    renderer.render(scene, camera);<span class="comment">//执行渲染操作</span></span><br><span class="line"></span><br><span class="line">    mesh.rotateY(<span class="number">0.0005</span> * t);<span class="comment">//每次绕y轴旋转0.01弧度</span></span><br><span class="line">    requestAnimationFrame(render);<span class="comment">//请求再次执行渲染函数render</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">render();</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="控制场景"><a href="#控制场景" class="headerlink" title="控制场景"></a>控制场景</h2><ul>
+<li>THREE.OrbitControls()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> controls = <span class="keyword">new</span> THREE.OrbitControls(camera, renderer.domElement);<span class="comment">//创建控件对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  </span></span><br><span class="line"><span class="comment">//controls.addEventListener(&#x27;change&#x27;, render);//监听鼠标、键盘事件</span></span><br></pre></td></tr></table></figure>
+<p>​    addEventListtener方法如果在配合requestAnimationFrame()方法时，可省略，因为是监听事件，而requestAnimationFrame是不断请求，所以重复可省略</p>
+<h2 id="几个场景的多边形模型"><a href="#几个场景的多边形模型" class="headerlink" title="几个场景的多边形模型"></a>几个场景的多边形模型</h2><p>​    写这个的注意参数设定</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//长方体 参数：长，宽，高</span></span><br><span class="line"><span class="keyword">var</span> geometry = <span class="keyword">new</span> THREE.BoxGeometry(<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"><span class="comment">// 球体 参数：半径60  经纬度细分数40,40</span></span><br><span class="line"><span class="keyword">var</span> geometry = <span class="keyword">new</span> THREE.SphereGeometry(<span class="number">60</span>, <span class="number">40</span>, <span class="number">40</span>);</span><br><span class="line"><span class="comment">// 圆柱  参数：圆柱面顶部、底部直径50,50   高度100  圆周分段数</span></span><br><span class="line"><span class="keyword">var</span> geometry = <span class="keyword">new</span> THREE.CylinderGeometry( <span class="number">50</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">25</span> );</span><br><span class="line"><span class="comment">// 正八面体</span></span><br><span class="line"><span class="keyword">var</span> geometry = <span class="keyword">new</span> THREE.OctahedronGeometry(<span class="number">50</span>);</span><br><span class="line"><span class="comment">// 正十二面体</span></span><br><span class="line"><span class="keyword">var</span> geometry = <span class="keyword">new</span> THREE.DodecahedronGeometry(<span class="number">50</span>);</span><br><span class="line"><span class="comment">// 正二十面体</span></span><br><span class="line"><span class="keyword">var</span> geometry = <span class="keyword">new</span> THREE.IcosahedronGeometry(<span class="number">50</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="材质设定"><a href="#材质设定" class="headerlink" title="材质设定"></a>材质设定</h2><ul>
+<li><p>THREE.MeshLambertMaterial(color: 0x0000ff)</p>
+<p>这个一般是对生成的物体模型的材质进行定义</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> material = <span class="keyword">new</span> THREE.MeshLambertMaterial(&#123;</span><br><span class="line">    color: <span class="number">0x0000ff</span></span><br><span class="line">&#125;); <span class="comment">//材质对象Material</span></span><br><span class="line"><span class="keyword">var</span> mesh = <span class="keyword">new</span> THREE.Mesh(geometry, material); <span class="comment">//网格模型对象Mesh</span></span><br><span class="line">scene.add(mesh); <span class="comment">//网格模型添加到场景中</span></span><br></pre></td></tr></table></figure>
+<h3 id="attribute-属性"><a href="#attribute-属性" class="headerlink" title="attribute(属性)"></a>attribute(属性)</h3><ul>
+<li><p>color  颜色</p>
+</li>
+<li><p>opacity 介于 0~1  透明度设定</p>
+</li>
+<li><p>transparent 是否开启透明度</p>
+</li>
+<li><p>wireframe   线框</p>
+</li>
+</ul>
+<p>高光效果，表示光照下的反射、漫反射、镜面反射等，都是光学原理，不懂，不常用，记一下      </p>
+<ul>
+<li><p>specular: 0x4488ee,</p>
+</li>
+<li><p>shininess: 12</p>
+</li>
+</ul>
+<h2 id="辅助坐标"><a href="#辅助坐标" class="headerlink" title="辅助坐标"></a>辅助坐标</h2><ul>
+<li>THREE.AxisHelper()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> axisHelper = <span class="keyword">new</span> THREE.AxisHelper(<span class="number">350</span>);</span><br><span class="line">scene.add(axisHelper)</span><br></pre></td></tr></table></figure>
+<p>​    添加进去即可</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>文章作者:</span>
+                        <span>Hans Jian</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>文章链接:</span>
+                        <span><a href="http://chihongjian.cn/2021/04/17/threejs-1/">http://chihongjian.cn/2021/04/17/threejs-1/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>版权声明:</span>
+                        <span>许可证书 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a></span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/web/"># web</a>
+                    
+                        <a href="/tags/threejs/"># threejs</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">返回</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2021/04/17/zhangshangbeiguo/">对微信小程序上的程序一点分析</a>
+            
+        </section>
+        <br>
+            <div class="post-content" id="vcomments"></div> 
+        <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'fuW3YUhpFFC5Y4qcyvU5g4ko-gzGzoHsz',
+            appKey: '6nnduwkR9FLH5lUq7IVLPtsB'
+        })
+        </script>
+
+    </article>
+
+</div>
+
+            
+        </div>
+
+        <footer id="footer" class="footer">
+	
+    <div class="copyright">
+        <span>Copyright © 2021 小健的个人日记•Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+       	<span id="busuanzi_container_site_pv">
+    			 &本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+			</span>
+    </div>
+
+</footer>
+
+
+    </div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

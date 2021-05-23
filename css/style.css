@@ -143,14 +143,14 @@ template {
   display: none;
 }
 @font-face {
-  font-family: 'lanting';
-  src: url("../fonts/lanting/lanting.eot"); /* IE9 */
-  src: url("../fonts/lanting/lanting.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */ url("../fonts/lanting/lanting.woff2") format('woff2'), url("../fonts/lanting/lanting.woff") format('woff'), url("../fonts/lanting/lanting.ttf") format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  font-family: 'iconfont';
+  src: url("../fonts/iconfont/iconfont.eot"); /* IE9 */
+  src: url("../fonts/iconfont/iconfont.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */ url("../fonts/iconfont/iconfont.woff2") format('woff2'), url("../fonts/iconfont/iconfont.woff") format('woff'), url("../fonts/iconfont/iconfont.ttf") format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
   font-weight: 300;
   font-display: swap;
 }
 html {
-  font-family: 'Microsoft Jhenghei', Lantinghei SC, 'lanting', PingFang SC, Seguo UI, Microsoft Yahei, Arial;
+  font-family: 'Microsoft Jhenghei', Lantinghei SC, 'iconfont', PingFang SC, Seguo UI, Microsoft Yahei, Arial;
 }
 html::-webkit-scrollbar {
   width: 8px;

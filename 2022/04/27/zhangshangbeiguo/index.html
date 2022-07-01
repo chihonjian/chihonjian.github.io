@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Hans Jian">
+
+
+
+
+
+<title>对微信小程序上的程序一点分析 | 小健的日记</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/js/love.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.js"></script>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.css">
+                
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">小健的个人小窝</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E5%91%A8%E8%AE%B0">周记</a>
+                
+                    <a class="menu-item" href="/categories/%E5%9F%BA%E7%A1%80">学习基础</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">小健的个人小窝</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; 菜单</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E5%91%A8%E8%AE%B0">周记</a>
+                
+                    <a class="menu-item" href="/categories/%E5%9F%BA%E7%A1%80">学习基础</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开目录</a>
+        <a onclick="go_top()">回到顶部</a>
+        <a onclick="go_bottom()">转去最低</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "收起目录"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "展开目录"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">对微信小程序上的程序一点分析</h1>
+            
+                <div class="post-meta">
+                    
+                        作者: <a itemprop="author" rel="author" href="/">Hans Jian</a>
+                    
+
+                    
+                        <span class="post-time">
+                        日期: <a href="#">2022-04-27&nbsp;&nbsp;10:14:10</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    分类:
+                            
+                                <a href="/categories/%E9%BC%93%E6%8D%A3/">鼓捣</a>
+                            
+                        </span>
+                    
+                        <span id="busuanzi_container_page_pv">
+                        &nbsp;本文总阅读量:<span style="color:#2d96bd" id="busuanzi_value_page_pv"></span><span style="color:#2d96bd">次</span>
+                        </span>
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="说点啥"><a href="#说点啥" class="headerlink" title="说点啥"></a>说点啥</h2><p>​    一开始，由于受人之托对掌尚北国APP进行分析，一般来说，我是要进行抓包，事实上我也是这么做了；我下载好APP后发现没找到应该有的活动信息，才发现这个活动在微信小程序上独有的，这就很难受，毕竟微信这种封闭的生态，可能不好搞，但总归交互总要走网卡，所以应该还是能够抓包的，就来试试吧。</p>
+<h2 id="分析的过程坎坷"><a href="#分析的过程坎坷" class="headerlink" title="分析的过程坎坷"></a>分析的过程坎坷</h2><h3 id="安装模拟环境"><a href="#安装模拟环境" class="headerlink" title="安装模拟环境"></a>安装模拟环境</h3><p>​    经过朋友推荐，我下载了一个MuMu模拟器，非常适合进行对手机抓包，当然bp也是可以抓的，我单纯是为了方便。后面我采取了HttpCanar一款比较优秀的抓包的软件，很香。看看效果</p>
+<p>​    <a href="./zhangshang-1.png" data-fancybox="group" data-caption="模拟环境"><img src="/image/zhangshang-1.png"></a></p>
+<p>​    抓包的效果，都是可以比较直接的抓到这些数据包的，可以看见里面的请求信息与响应信息，比较直观的获取。</p>
+<p><a href="./zhangshang-2.png" data-fancybox="group" data-caption="数据包"><img src="/2022/04/27/zhangshangbeiguo/zhangshang-2.png"></a></p>
+<h3 id="分析数据"><a href="#分析数据" class="headerlink" title="分析数据"></a>分析数据</h3><p>​    我直接把抓的url结合参数进行请求，结果是完全成功，可以进行下一部分析请求参数了</p>
+<p><a href="./zhangshang-3.png" data-fancybox="group" data-caption="接口数据"><img src="/2022/04/27/zhangshangbeiguo/zhangshang-3.png"></a></p>
+<p>​    他的参数是以json形式请求，其他参数没多大问题，重要是sign这个签名，太坑了，任意修改添加一个参数，报错。</p>
+<p><a href="./zhangshang-5.png" data-fancybox="group" data-caption="验签错误"><img src="/2022/04/27/zhangshangbeiguo/zhangshang-5.png"></a></p>
+<p>​    这就很无奈了，经过测试，我删除其中参数也会报错，增加其他参数也会报仇，并且我还尝试了以下方法：</p>
+<ul>
+<li>对json的value值拼接字符串加密失败</li>
+<li>对json的value值基于ascill加密失败</li>
+</ul>
+<p>​    所以我猜想可能是基于json的数据以某种形式进行加密，大可能使用了循环遍历了里面的参数，因为我添加新参数也报错就是证明，</p>
+<p>​    补充：sign是32位     符合MD5大写形式</p>
+<p>​    可能存在一个匿参数appid参与验签，因为图中有一个appkey</p>
+<p>​    都是我的猜想。</p>
+<h3 id="逆向获取微信小程序源码"><a href="#逆向获取微信小程序源码" class="headerlink" title="逆向获取微信小程序源码"></a>逆向获取微信小程序源码</h3><p>​    后来我想到，sgin肯定是在前端生成的，它肯定有一套属于自己的算法，那我是不是获取到他的源码就可以呢，说做就做。</p>
+<p>​    我们都明白，微信小程序虽然内嵌在微信，属于一个生态，但是他本质上还是属于web界面，所以肯定会有痕迹，缓存，于是我查了一下资料，果真，有方法可以获取到微信源码。它的方法是这样的：</p>
+<h4 id="对模拟器进行root操作，并下载RE管理器"><a href="#对模拟器进行root操作，并下载RE管理器" class="headerlink" title="对模拟器进行root操作，并下载RE管理器"></a>对模拟器进行root操作，并下载RE管理器</h4><p>​    解释一下，微信会缓存一个wxapkg的包在系统文档中，所以我们只要找到这个包，反编译一下就可以获取到他的源码了。</p>
+<p><a href="./zhangshang-7.png" data-fancybox="group" data-caption="RE"><img src="/2022/04/27/zhangshangbeiguo/zhangshang-7.png"></a></p>
+<p>在这个文件路径下，找到缓存的类似于这样的文件打开，如果不确定，可以删除，然后重新登录微信重新缓存就好</p>
+<p><a href="./zhangshang-8.png" data-fancybox="group" data-caption="路径"><img src="/2022/04/27/zhangshangbeiguo/zhangshang-8.png"></a></p>
+<p><a href="./zhangshang-9.png" data-fancybox="group" data-caption="wxapkg包"><img src="/2022/04/27/zhangshangbeiguo/zhangshang-9.png"></a></p>
+<p>​    这个就是啦，我们压缩一下发送到我们电脑，然后反编译</p>
+<p>​    反编译的程序是我在github上找的，直接拿来跑</p>
+<p><a href="./zhangshang-10.png" data-fancybox="group" data-caption="页面"><img src="/2022/04/27/zhangshangbeiguo/zhangshang-10.png"></a></p>
+<p>​    这个反编译后的代码结构，很遗憾，并不是完整的，这也是没有办法的办法。</p>
+<h4 id="碰撞MD5"><a href="#碰撞MD5" class="headerlink" title="碰撞MD5"></a>碰撞MD5</h4><p>​    没办法，还是没找到sgin的生成方式，我写了一个程序去猜测了一下，然而并没有什么用。只能把他的MD5放到网络跑</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dict_list =&#123;</span><br><span class="line">    <span class="string">&quot;time&quot;</span>:<span class="string">&quot;1618572891wx0ae5e7e4b7ffd8ba&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">s = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> dict_list:</span><br><span class="line">	s += <span class="built_in">str</span>(dict_list[item])</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">z = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> <span class="built_in">sorted</span>(s):</span><br><span class="line">    z +=item</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;字符串拼接的结果:&quot;</span> + s )</span><br><span class="line">print(<span class="string">&quot;基于ascill排序后的结果:&quot;</span> + z)</span><br><span class="line"></span><br><span class="line">input_name = hashlib.md5()</span><br><span class="line">input_name.update(s.encode(<span class="string">&quot;utf-8&quot;</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">success_sign = <span class="string">&quot;7664aefab9fd99269f8cbd8349441017&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># .upper()</span></span><br><span class="line">password = (input_name.hexdigest())</span><br><span class="line">print(<span class="string">&quot;正确结果:&quot;</span> + success_sign )</span><br><span class="line">print(<span class="string">&quot;实际结果:&quot;</span> + password)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(password == success_sign):</span><br><span class="line">	print(<span class="string">&quot;success&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	print(<span class="string">&quot;error&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>​    很遗憾，最后我也没能破解sgin的加密算法，因为源代码太乱了，我找不到它的生成方式，算是一个小缺憾，我把它这个像MD5的sgin放到网络上碰撞，看看后面有没有结果，如果能的话就应该可以成功使用这些接口直接操作了。虽然没能完成，过程中确进一步的了解到了新的知识，还算可以接受，记录一些，以后方便使用。    </p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>文章作者:</span>
+                        <span>Hans Jian</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>文章链接:</span>
+                        <span><a href="http://chihongjian.cn/2022/04/27/zhangshangbeiguo/">http://chihongjian.cn/2022/04/27/zhangshangbeiguo/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>版权声明:</span>
+                        <span>许可证书 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a></span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"># 微信小程序</a>
+                    
+                        <a href="/tags/%E9%80%86%E5%90%91/"># 逆向</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">返回</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2022/04/27/adw-web-view_source/">攻防世界·WEB—view_source</a>
+            
+            
+            <a class="next" rel="next" href="/2022/04/27/yiban-card-1/">对某平台APP的一点分析(1)——分析APP接口</a>
+            
+        </section>
+        <br>
+            <div class="post-content" id="vcomments"></div> 
+        <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'fuW3YUhpFFC5Y4qcyvU5g4ko-gzGzoHsz',
+            appKey: '6nnduwkR9FLH5lUq7IVLPtsB'
+        })
+        </script>
+
+    </article>
+
+</div>
+
+            
+        </div>
+
+        <footer id="footer" class="footer">
+	
+    <div class="copyright">
+        <span>Copyright © 2021 小健的个人日记•Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+       	<span id="busuanzi_container_site_pv">
+    			 &本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+			</span>
+    </div>
+
+</footer>
+
+
+    </div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

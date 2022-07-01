@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Hans Jian">
+
+
+
+
+
+<title>对某平台APP的一点分析(1)——分析APP接口 | 小健的日记</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/js/love.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.js"></script>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.css">
+                
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">小健的个人小窝</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E5%91%A8%E8%AE%B0">周记</a>
+                
+                    <a class="menu-item" href="/categories/%E5%9F%BA%E7%A1%80">学习基础</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">小健的个人小窝</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; 菜单</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E5%91%A8%E8%AE%B0">周记</a>
+                
+                    <a class="menu-item" href="/categories/%E5%9F%BA%E7%A1%80">学习基础</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开目录</a>
+        <a onclick="go_top()">回到顶部</a>
+        <a onclick="go_bottom()">转去最低</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "收起目录"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "展开目录"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">对某平台APP的一点分析(1)——分析APP接口</h1>
+            
+                <div class="post-meta">
+                    
+                        作者: <a itemprop="author" rel="author" href="/">Hans Jian</a>
+                    
+
+                    
+                        <span class="post-time">
+                        日期: <a href="#">2022-04-27&nbsp;&nbsp;10:14:10</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    分类:
+                            
+                                <a href="/categories/%E5%8E%9F%E5%88%9B/">原创</a>
+                            
+                        </span>
+                    
+                        <span id="busuanzi_container_page_pv">
+                        &nbsp;本文总阅读量:<span style="color:#2d96bd" id="busuanzi_value_page_pv"></span><span style="color:#2d96bd">次</span>
+                        </span>
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <hr>
+<h2 id="随便说说"><a href="#随便说说" class="headerlink" title="随便说说"></a>随便说说</h2><p>​    疫情时期，每个学校放假了每天都需要进行打卡，实时监控我们学生的基本情况，无可厚非的事情，但是一般情况下疫情信息资料不会有太大变化，而每次选择点击同样的东西太累了。所以我在保证资料真实可靠的情况下，对某APP进行一定的分析，发挥懒的本质。仅供学习交流。</p>
+<p>​    我们学校用的是[**]App进行打卡，而且这款APP没有web版本，所以要抓取源接口，需要对这款APP进行分析了，开干开干</p>
+<hr>
+<h2 id="分析APP"><a href="#分析APP" class="headerlink" title="分析APP"></a>分析APP</h2><h3 id="抓包软件"><a href="#抓包软件" class="headerlink" title="抓包软件"></a>抓包软件</h3><p>​    抓包软件有非常多的选择，我尝试过用<code>Fiddler</code>抓包，但是安卓7.0以上版本不支持外部证书安装了，所以无法使用Fiddler进行抓包测试，我选择了这一款<code>HttpCanary</code>一款比较优秀的手机抓包APP，直接安装在手机中，配置完成后就可以成功了抓取手机的安装包了</p>
+<p><a href="./yiban-1.jpg" data-fancybox="group" data-caption="HttpCanary工具"><img src="/2022/04/27/yiban-card-1/yiban-1.jpg"></a></p>
+<p>​    以上是软件的基本界面，点击右下方启动按钮成功运行，就可以打开APP进行模拟登陆操作，获取接口，如图:</p>
+<p><a href="./yiban-2.jpg" data-fancybox="group" data-caption="HttpCanary启动"><img src="/2022/04/27/yiban-card-1/yiban-2.jpg"></a></p>
+<h3 id="开启APP"><a href="#开启APP" class="headerlink" title="开启APP"></a>开启APP</h3><p>​    打开程序，进行模拟登陆操作，输入账号密码，点击登陆</p>
+<p><a href="./yiban-3.jpg" data-fancybox="group" data-caption="登陆易班"><img src="/2022/04/27/yiban-card-1/yiban-3.jpg"></a></p>
+<p>​    然后回到HttpCanary程序中，查看捕捉到的接口信息</p>
+<p><a href="./yiban-4.jpg" data-fancybox="group" data-caption="登陆接口信息"><img src="/2022/04/27/yiban-card-1/yiban-4.jpg"></a></p>
+<h2 id="分析APP接口"><a href="#分析APP接口" class="headerlink" title="分析APP接口"></a>分析APP接口</h2><h3 id="获取登录接口"><a href="#获取登录接口" class="headerlink" title="获取登录接口"></a>获取登录接口</h3><p>​    可以看到图片中我们截获了许多的GET、POST请求操作，然后我们一个个点击查看一下，看看哪个是我们的登录接口，登录接口找到：</p>
+<p><a href="./yiban-5.jpg" data-fancybox="group" data-caption="登录接口找到"><img src="/2022/04/27/yiban-card-1/yiban-5.jpg"></a></p>
+<h3 id="获取校本化接口"><a href="#获取校本化接口" class="headerlink" title="获取校本化接口"></a>获取校本化接口</h3><p>​    还是同样的步骤，不过为了简单看出接口，我们先清理一下之前的接口，在重新获取。回到程序，点击校本化。</p>
+<p><a href="./yiban-6.jpg" data-fancybox="group" data-caption="点击校本化"><img src="/2022/04/27/yiban-card-1/yiban-6.jpg"></a></p>
+<p>​    回到抓包工具，查看获取到的新的接口信息，找到校本化接口</p>
+<p><a href="./yiban-7.jpg" data-fancybox="group" data-caption="校本化接口信息"><img src="/2022/04/27/yiban-card-1/yiban-7.jpg"></a></p>
+<h3 id="获取消息列"><a href="#获取消息列" class="headerlink" title="获取消息列"></a>获取消息列</h3><p>​    需要获取打卡的列表，老样子，点击操作</p>
+<p><a href="./yiban-8.jpg" data-fancybox="group" data-caption="点击疫情消息队列"><img src="/2022/04/27/yiban-card-1/yiban-8.jpg"></a></p>
+<p>​    获取疫情打卡消息列表</p>
+<p><a href="./yiban-9.jpg" data-fancybox="group" data-caption="消息列表"><img src="/2022/04/27/yiban-card-1/yiban-9.jpg"></a></p>
+<p>​    获取到的信息列表</p>
+<p><a href="./yiban-10.jpg" data-fancybox="group" data-caption="疫情信息表"><img src="/2022/04/27/yiban-card-1/yiban-10.jpg"></a></p>
+<h3 id="获取提交打卡信息接口"><a href="#获取提交打卡信息接口" class="headerlink" title="获取提交打卡信息接口"></a>获取提交打卡信息接口</h3><p>​    最后的条件是获取提交打卡的信息接口</p>
+<p><a href="./yiban-11.jpg" data-fancybox="group" data-caption="打卡信息接口"><img src="/2022/04/27/yiban-card-1/yiban-11.jpg"></a></p>
+<p>​    基本信息集合</p>
+<p><a href="./yiban-12.jpg" data-fancybox="group" data-caption="打卡信息集合"><img src="/2022/04/27/yiban-card-1/yiban-12.jpg"></a></p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><blockquote>
+<p>通过抓包的软件的分析，我们可以看出，APP的接口是通过登录的token以及相关的CSRF以及UID等配合获取，目前已经获取到了提交打卡信息所需要的全部接口，就可以到此为止了，学习交流</p>
+<p>后面再写关于代码实现的部分吧，点到为止，支持国家！爱国爱党！睡觉</p>
+<p>感谢某某学长的提供的帮助</p>
+</blockquote>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>文章作者:</span>
+                        <span>Hans Jian</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>文章链接:</span>
+                        <span><a href="http://chihongjian.cn/2022/04/27/yiban-card-1/">http://chihongjian.cn/2022/04/27/yiban-card-1/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>版权声明:</span>
+                        <span>许可证书 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a></span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/python/"># python</a>
+                    
+                        <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"># 服务器</a>
+                    
+                        <a href="/tags/web/"># web</a>
+                    
+                        <a href="/tags/nodeJs/"># nodeJs</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">返回</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2022/04/27/zhangshangbeiguo/">对微信小程序上的程序一点分析</a>
+            
+            
+            <a class="next" rel="next" href="/2022/04/27/threejs-1/">Threejs学习之路——初识三要素、模型</a>
+            
+        </section>
+        <br>
+            <div class="post-content" id="vcomments"></div> 
+        <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'fuW3YUhpFFC5Y4qcyvU5g4ko-gzGzoHsz',
+            appKey: '6nnduwkR9FLH5lUq7IVLPtsB'
+        })
+        </script>
+
+    </article>
+
+</div>
+
+            
+        </div>
+
+        <footer id="footer" class="footer">
+	
+    <div class="copyright">
+        <span>Copyright © 2021 小健的个人日记•Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+       	<span id="busuanzi_container_site_pv">
+    			 &本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+			</span>
+    </div>
+
+</footer>
+
+
+    </div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

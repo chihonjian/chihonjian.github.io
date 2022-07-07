@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Hans Jian">
+
+
+
+
+
+<title>C++调用Python的记录过程 | 小健的日记</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/js/love.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.js"></script>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.css">
+                
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">小健的个人小窝</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E5%91%A8%E8%AE%B0">周记</a>
+                
+                    <a class="menu-item" href="/categories/%E5%9F%BA%E7%A1%80">学习基础</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">小健的个人小窝</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; 菜单</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E5%91%A8%E8%AE%B0">周记</a>
+                
+                    <a class="menu-item" href="/categories/%E5%9F%BA%E7%A1%80">学习基础</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开目录</a>
+        <a onclick="go_top()">回到顶部</a>
+        <a onclick="go_bottom()">转去最低</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "收起目录"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "展开目录"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">C++调用Python的记录过程</h1>
+            
+                <div class="post-meta">
+                    
+                        作者: <a itemprop="author" rel="author" href="/">Hans Jian</a>
+                    
+
+                    
+                        <span class="post-time">
+                        日期: <a href="#">2022-07-07&nbsp;&nbsp;9:30:42</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    分类:
+                            
+                                <a href="/categories/%E9%BC%93%E6%8D%A3/">鼓捣</a>
+                            
+                        </span>
+                    
+                        <span id="busuanzi_container_page_pv">
+                        &nbsp;本文总阅读量:<span style="color:#2d96bd" id="busuanzi_value_page_pv"></span><span style="color:#2d96bd">次</span>
+                        </span>
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="C-调用Python的若干问题解决"><a href="#C-调用Python的若干问题解决" class="headerlink" title="C++调用Python的若干问题解决"></a>C++调用Python的若干问题解决</h1><h2 id="C-遇到的问题情况"><a href="#C-遇到的问题情况" class="headerlink" title="C++遇到的问题情况"></a>C++遇到的问题情况</h2><p>&nbsp;&nbsp;项目研发中遇到需要C++调用python模块的情况。项目需求是需要基于python进行授权验证，解密基于RSA算法的内容后判断权限并返回 0 1值。返回的内容比较简洁。</p>
+<p>&nbsp;&nbsp;我查询到C++可以通过Python.h调用python模块，但如果直接基于python的C++Api库会发生很多奇奇怪怪的问题，我转移了python底层的include、libs的基础链接库到C++中，如图:</p>
+<pre><code>&lt;a href=&#39;./1657158088739.png&#39; data-fancybox=&quot;group&quot; data-caption=&quot;1657158088739.png&quot;&gt;![](1657158088739.png)&lt;/a&gt;
+</code></pre>
+<p>&nbsp;&nbsp;然后放入代码进行测试结果会发生缺失 python36_d.dll命令。非常离谱的报错，我排查了底层源码中链接库的名称异常、以及C++链接器的库引用，一系列操作后都失败了。</p>
+<p><a href="./1657158950420.png" data-fancybox="group" data-caption="1657158950420.png"><img src="/2022/07/07/python-invoking-C/1657158950420.png"></a></p>
+<h2 id="预封装python"><a href="#预封装python" class="headerlink" title="预封装python"></a>预封装python</h2><p>&nbsp;&nbsp;我能力内的方法都尝试一遍后，我觉得应该做不到了，于是我换了一种思路，对python进行预封装，然后基于封装好的python运行时传参，然后在获取返回值，这样C++就可以直接调用可执行程序会直接了当。所以我对原有代码基础上增设了可执行传参，类似于：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">        opts, args = getopt.getopt(argv, <span class="string">&quot;hm:l:mf:lf:&quot;</span>, [<span class="string">&quot;help&quot;</span>, <span class="string">&quot;machine=&quot;</span>, <span class="string">&quot;license=&quot;</span>,<span class="string">&quot;machineFile=&quot;</span>,<span class="string">&quot;licenseFile=&quot;</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 处理 返回值options是以元组为元素的列表。</span></span><br><span class="line">        <span class="keyword">for</span> opt, arg <span class="keyword">in</span> opts:</span><br><span class="line">                <span class="keyword">if</span> opt <span class="keyword">in</span> (<span class="string">&quot;-h&quot;</span>, <span class="string">&quot;--help&quot;</span>):</span><br><span class="line">                        print(<span class="string">&#x27;Error: test_arg.py -m &lt;machine&gt; -l &lt;license&gt;&#x27;</span>)</span><br><span class="line">                        print(<span class="string">&#x27;   or: test_arg.py --mf=&lt;machineFile&gt; --lf=&lt;licenseFile&gt;&#x27;</span>)</span><br><span class="line">                        sys.exit(<span class="number">1</span>)</span><br><span class="line">                <span class="keyword">elif</span> opt <span class="keyword">in</span> (<span class="string">&quot;-m&quot;</span>, <span class="string">&quot;--machine&quot;</span>):</span><br><span class="line">                        machineFeaturesCiphertext = arg</span><br><span class="line">                <span class="keyword">elif</span> opt <span class="keyword">in</span> (<span class="string">&quot;-l&quot;</span>, <span class="string">&quot;--license&quot;</span>):</span><br><span class="line">                        licenseCipherText = arg</span><br><span class="line">                <span class="keyword">elif</span> opt <span class="keyword">in</span> (<span class="string">&quot;-mf&quot;</span>, <span class="string">&quot;--machineFile&quot;</span>):</span><br><span class="line">                        machineFeaturesFile = arg</span><br><span class="line">                <span class="keyword">elif</span> opt <span class="keyword">in</span> (<span class="string">&quot;-lf&quot;</span>, <span class="string">&quot;--licenseFile&quot;</span>):</span><br><span class="line">                        licenseFile = arg</span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;我节选了一段关键性代码，它的意思是接受固定值传参，这样可以方便我后续入参的判断条件。接下来封装python成可执行文件。</p>
+<pre><code>&lt;a href=&#39;./1657159639862.png&#39; data-fancybox=&quot;group&quot; data-caption=&quot;1657159639862.png&quot;&gt;![](1657159639862.png)&lt;/a&gt;
+</code></pre>
+<h2 id="基于C-调用Python可执行文件"><a href="#基于C-调用Python可执行文件" class="headerlink" title="基于C++调用Python可执行文件"></a>基于C++调用Python可执行文件</h2><p>&nbsp;写了小demo测试一下是否能够运行。调用命令存在隐私，直接放运行结果。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = system(<span class="string">&quot;调用命令&quot;</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,n);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;a href=&#39;./1657159807067.png&#39; data-fancybox=&quot;group&quot; data-caption=&quot;1657159807067.png&quot;&gt;![](1657159807067.png)&lt;/a&gt;
+</code></pre>
+<p>&nbsp;&nbsp;如上图表示就是运行成功了。</p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>&nbsp;&nbsp;简单说几句，就如此的封装调用非常不合理，切勿如此做法，实因项目需求问题。碎碎语，溜~</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>文章作者:</span>
+                        <span>Hans Jian</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>文章链接:</span>
+                        <span><a href="http://chihongjian.cn/2022/07/07/python-invoking-C/">http://chihongjian.cn/2022/07/07/python-invoking-C/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>版权声明:</span>
+                        <span>许可证书 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a></span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/python/"># python</a>
+                    
+                        <a href="/tags/C/"># C++</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">返回</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2022/07/05/week-summary-20220627-0705/">20220627-0705-周总结</a>
+            
+        </section>
+        <br>
+            <div class="post-content" id="vcomments"></div> 
+        <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'fuW3YUhpFFC5Y4qcyvU5g4ko-gzGzoHsz',
+            appKey: '6nnduwkR9FLH5lUq7IVLPtsB'
+        })
+        </script>
+
+    </article>
+
+</div>
+
+            
+        </div>
+
+        <footer id="footer" class="footer">
+	
+    <div class="copyright">
+        <span>Copyright © 2021 小健的个人日记•Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+       	<span id="busuanzi_container_site_pv">
+    			 &本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+			</span>
+    </div>
+
+</footer>
+
+
+    </div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

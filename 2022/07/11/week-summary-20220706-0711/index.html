@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Hans Jian">
+
+
+
+
+
+<title>20220706-0711-周总结 | 小健的日记</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/js/love.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.js"></script>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.css">
+                
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">小健的个人小窝</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E5%91%A8%E8%AE%B0">周记</a>
+                
+                    <a class="menu-item" href="/categirues/%E7%AC%94%E8%BF%B9">笔迹项目</a>
+                
+                    <a class="menu-item" href="/categories/%E5%9F%BA%E7%A1%80">学习基础</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">小健的个人小窝</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; 菜单</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E5%91%A8%E8%AE%B0">周记</a>
+                
+                    <a class="menu-item" href="/categirues/%E7%AC%94%E8%BF%B9">笔迹项目</a>
+                
+                    <a class="menu-item" href="/categories/%E5%9F%BA%E7%A1%80">学习基础</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开目录</a>
+        <a onclick="go_top()">回到顶部</a>
+        <a onclick="go_bottom()">转去最低</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "收起目录"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "展开目录"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">20220706-0711-周总结</h1>
+            
+                <div class="post-meta">
+                    
+                        作者: <a itemprop="author" rel="author" href="/">Hans Jian</a>
+                    
+
+                    
+                        <span class="post-time">
+                        日期: <a href="#">2022-07-11&nbsp;&nbsp;9:08:04</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    分类:
+                            
+                                <a href="/categories/%E5%91%A8%E8%AE%B0/">周记</a>
+                            
+                        </span>
+                    
+                        <span id="busuanzi_container_page_pv">
+                        &nbsp;本文总阅读量:<span style="color:#2d96bd" id="busuanzi_value_page_pv"></span><span style="color:#2d96bd">次</span>
+                        </span>
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="技术学习"><a href="#技术学习" class="headerlink" title="技术学习"></a>技术学习</h1><h2 id="基于RSA的授权"><a href="#基于RSA的授权" class="headerlink" title="基于RSA的授权"></a>基于RSA的授权</h2><p>&nbsp;&nbsp;本周研发了公司的的一个子项目，我负责其中的授权模块验证。授权的功能流程图：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1657501886014.png" data-fancybox="group" data-caption="1657501886014.png"><img src="/2022/07/11/week-summary-20220706-0711/1657501886014.png"></a></p>
+<p>&nbsp;&nbsp;授权的流程呢就是基于服务器下发的授权文件与机器码文件，他们之间授权文件包括授权时间及其他标识与机器码中的特征进行一一对应，若对应关系成立则授权通过，若对应关系不成立，则授权失败的基本逻辑。</p>
+<p>&nbsp;&nbsp;本次研发是基于python语言研发，python素有胶水语言的特性能够与其他语音尤其是C++耦合较为简单。python的脚本开发较为迅捷可以保证工期不被延误。在研发过程中还遇到了在python调用C++过程中的若干问题，我另写了一篇文件详细讲解了<a target="_blank" rel="noopener" href="https://www.chihongjian.cn/2022/07/07/python-invoking-C/" title="C++调用python">《C++调用Python的记录过程》</a>。</p>
+<p>&nbsp;&nbsp;基本的研发功能在了解完需求后还是比较迅捷的，感悟最深的就是在开发模块与配合中，沟通很重要。常常需求文档看很久，功能几分钟的尴尬现象。</p>
+<h2 id="MES生产管理项目"><a href="#MES生产管理项目" class="headerlink" title="MES生产管理项目"></a>MES生产管理项目</h2><p>&nbsp;&nbsp;从入职公司到现在，这个项目一直在跟踪研发。从基础模块的修修BUG到一些模块的研发。得益于进步的是基于对接受参数与返回参数的实体类过程有了一个明确的了解。早些研发项目时返回的实体类常常不懂应如何添加其他数据返回，或者复杂类型返回。在项目中学习他人代码了解到，项目层分为：controller、service、service下的实现层impl、domain（我以前喜欢命名model，不碍事）。其中值得注意的是 domain层中细分了 VO层的实现，它是基于domain中的实体类去继承它，然后接受参数与返回数据如果是不同于实体类情况，直接新建类继承实体后添加成员返回。某个字模块的项目架构： </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1657503680170.png" data-fancybox="group" data-caption="1657503680170.png"><img src="/2022/07/11/week-summary-20220706-0711/1657503680170.png"></a></p>
+<p>&nbsp;&nbsp;这整个项目结果中我还学习到了很多有用的知识。虽然研发过程中的增删查改的逻辑比较无聊，但一个项目下来，从需求文档的浏览到完成功能研发是需要经过不断讨论的。在此我只想对这个项目说：你喵的项目文档写好点，数据库文档配齐了没。这很重要。表示开发这个项目很心累，累觉不爱。</p>
+<h2 id="java工厂模式"><a href="#java工厂模式" class="headerlink" title="java工厂模式"></a>java工厂模式</h2><p>&nbsp;&nbsp;设计模式这本书非常不过，我浏览了其中的单例模式、工厂模式。还没来得及复现。工厂模式我看到了简单工厂与方法工厂。方法工厂是对简单工厂的补充，在工厂类的基础上加了一个抽象类保证其拓展性。下次一定好好的写一篇对抽象工厂理解的文章。</p>
+<h1 id="碎碎言"><a href="#碎碎言" class="headerlink" title="碎碎言"></a>碎碎言</h1><p>&nbsp;&nbsp;本周除了上班，我想想还有啥可以记录的。每天的生活都是9点到，6点半左右走。我得思考一下。</p>
+<p>&nbsp;&nbsp;想到啥说啥，晗兄上周给我们带了小笼包，这一个个小笼包一口一个味道着实不错。我们每天午后不出意外都会回到六期休息。他们开始谈论结婚的事宜的时候，确实感觉到每个阶段大家所议论的问题总是符合现阶段的。我们都长大了。</p>
+<p>&nbsp;&nbsp;其中六月到七月为止，我经历的很多事情有时候在晚上入眠时都会在我脑海中随机浮现，难免有时候有点伤悲，但生活对我来说是要继续的。一味的抱怨过去不如好好的面对未来。我特别喜欢功夫熊猫里熊猫老爹说的话，大概就是你的过去已成为了过去，今天是天赐的礼物，明天是不确定。我们应该好好珍惜。原文：</p>
+<blockquote>
+<p>昨天是历史，明天是未知。今天是礼物。昨日已过去，明日还不知。今日是帝赐。</p>
+</blockquote>
+<p>&nbsp;&nbsp;六月的毕业离别、工作波动。很多挫折与打击你不知道什么时候来临。有时就是这么突然让你备受煎熬。我没有防备、没有准备，所以对突如其来的打击有点措手不及。给我的经验是我需求未雨绸缪，止步在安逸享受中，不去持续的进步是无法面对不确信的未来。只有当你时时刻刻在准备中才能够以最强力的姿态面对生活。我学会不断成长，哪怕泪水溢满我也会珍藏。</p>
+<h2 id="生活碎片"><a href="#生活碎片" class="headerlink" title="生活碎片"></a>生活碎片</h2><h3 id="绿豆汤"><a href="#绿豆汤" class="headerlink" title="绿豆汤"></a>绿豆汤</h3><p>&nbsp;&nbsp;夏天不过一碗清凉的绿豆汤。去年实习买的小米锅这时候用上刚刚好。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1657504967418.png" data-fancybox="group" data-caption="1657504967418.png"><img src="/2022/07/11/week-summary-20220706-0711/1657504967418.png"></a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1657504975311.png" data-fancybox="group" data-caption="1657504975311.png"><img src="/2022/07/11/week-summary-20220706-0711/1657504975311.png"></a></p>
+<h3 id="夏夜"><a href="#夏夜" class="headerlink" title="夏夜"></a>夏夜</h3><p>&nbsp;晚上跟啊坤出来取车，他憨憨竟然害怕一个人过去，不过那地方晚上确实黑暗，怕不是有蛇。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1657505046887.png" data-fancybox="group" data-caption="1657505046887.png"><img src="/2022/07/11/week-summary-20220706-0711/1657505046887.png"></a></p>
+<h3 id="新买的显示屏"><a href="#新买的显示屏" class="headerlink" title="新买的显示屏"></a>新买的显示屏</h3><p>&nbsp;&nbsp;新买了一个创维的显示屏美滋滋。研发项目过程中需求来回切换非常不方便，所以购买一个，顺便用来看看动漫，凡人修仙传非常nice。大屏超爽。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1657505145469.png" data-fancybox="group" data-caption="1657505145469.png"><img src="/2022/07/11/week-summary-20220706-0711/1657505145469.png"></a></p>
+<h3 id="笔迹项目研发"><a href="#笔迹项目研发" class="headerlink" title="笔迹项目研发"></a>笔迹项目研发</h3><p>&nbsp;&nbsp;笔迹项目开始正式着手研发了，从5月份拖到了现在，兜兜转转两个月，到现在也只是一个开始。准备开一个专题，认真记录一些笔迹项目的研发过程。持续的进步。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1657505219965.png" data-fancybox="group" data-caption="1657505219965.png"><img src="/2022/07/11/week-summary-20220706-0711/1657505219965.png"></a></p>
+<p>&nbsp;</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>文章作者:</span>
+                        <span>Hans Jian</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>文章链接:</span>
+                        <span><a href="http://chihongjian.cn/2022/07/11/week-summary-20220706-0711/">http://chihongjian.cn/2022/07/11/week-summary-20220706-0711/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>版权声明:</span>
+                        <span>许可证书 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a></span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E5%91%A8%E8%AE%B0/"># 周记</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">返回</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2022/07/07/python-invoking-C/">C++调用Python的记录过程</a>
+            
+        </section>
+        <br>
+            <div class="post-content" id="vcomments"></div> 
+        <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'fuW3YUhpFFC5Y4qcyvU5g4ko-gzGzoHsz',
+            appKey: '6nnduwkR9FLH5lUq7IVLPtsB'
+        })
+        </script>
+
+    </article>
+
+</div>
+
+            
+        </div>
+
+        <footer id="footer" class="footer">
+	
+    <div class="copyright">
+        <span>Copyright © 2021 小健的个人日记•Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+       	<span id="busuanzi_container_site_pv">
+    			 &本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+			</span>
+    </div>
+
+</footer>
+
+
+    </div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

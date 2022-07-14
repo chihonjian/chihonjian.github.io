@@ -251,16 +251,13 @@
 <li>THREE.OrbitControls()</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> controls = <span class="keyword">new</span> THREE.OrbitControls(camera, renderer.domElement);<span class="comment">//创建控件对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  </span></span><br><span class="line"><span class="comment">//controls.addEventListener(&#x27;change&#x27;, render);//监听鼠标、键盘事件</span></span><br></pre></td></tr></table></figure>
-<pre><code>addEventListtener方法如果在配合requestAnimationFrame()方法时，可省略，因为是监听事件，而requestAnimationFrame是不断请求，所以重复可省略
-</code></pre>
-<h2 id="几个场景的多边形模型"><a href="#几个场景的多边形模型" class="headerlink" title="几个场景的多边形模型"></a>几个场景的多边形模型</h2><pre><code>写这个的注意参数设定
-</code></pre>
+<p>&nbsp;&nbsp;addEventListtener方法如果在配合requestAnimationFrame()方法时，可省略，因为是监听事件，而requestAnimationFrame是不断请求，所以重复可省略</p>
+<h2 id="几个场景的多边形模型"><a href="#几个场景的多边形模型" class="headerlink" title="几个场景的多边形模型"></a>几个场景的多边形模型</h2><p>&nbsp;&nbsp;写这个的注意参数设定</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//长方体 参数：长，宽，高</span></span><br><span class="line"><span class="keyword">var</span> geometry = <span class="keyword">new</span> THREE.BoxGeometry(<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"><span class="comment">// 球体 参数：半径60  经纬度细分数40,40</span></span><br><span class="line"><span class="keyword">var</span> geometry = <span class="keyword">new</span> THREE.SphereGeometry(<span class="number">60</span>, <span class="number">40</span>, <span class="number">40</span>);</span><br><span class="line"><span class="comment">// 圆柱  参数：圆柱面顶部、底部直径50,50   高度100  圆周分段数</span></span><br><span class="line"><span class="keyword">var</span> geometry = <span class="keyword">new</span> THREE.CylinderGeometry( <span class="number">50</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">25</span> );</span><br><span class="line"><span class="comment">// 正八面体</span></span><br><span class="line"><span class="keyword">var</span> geometry = <span class="keyword">new</span> THREE.OctahedronGeometry(<span class="number">50</span>);</span><br><span class="line"><span class="comment">// 正十二面体</span></span><br><span class="line"><span class="keyword">var</span> geometry = <span class="keyword">new</span> THREE.DodecahedronGeometry(<span class="number">50</span>);</span><br><span class="line"><span class="comment">// 正二十面体</span></span><br><span class="line"><span class="keyword">var</span> geometry = <span class="keyword">new</span> THREE.IcosahedronGeometry(<span class="number">50</span>);</span><br></pre></td></tr></table></figure>
 <h2 id="材质设定"><a href="#材质设定" class="headerlink" title="材质设定"></a>材质设定</h2><ul>
-<li><p>THREE.MeshLambertMaterial(color: 0x0000ff)</p>
-<p>这个一般是对生成的物体模型的材质进行定义</p>
-</li>
+<li>THREE.MeshLambertMaterial(color: 0x0000ff)</li>
 </ul>
+<p>&nbsp;&nbsp;这个一般是对生成的物体模型的材质进行定义</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> material = <span class="keyword">new</span> THREE.MeshLambertMaterial(&#123;</span><br><span class="line">    color: <span class="number">0x0000ff</span></span><br><span class="line">&#125;); <span class="comment">//材质对象Material</span></span><br><span class="line"><span class="keyword">var</span> mesh = <span class="keyword">new</span> THREE.Mesh(geometry, material); <span class="comment">//网格模型对象Mesh</span></span><br><span class="line">scene.add(mesh); <span class="comment">//网格模型添加到场景中</span></span><br></pre></td></tr></table></figure>
 <h3 id="attribute-属性"><a href="#attribute-属性" class="headerlink" title="attribute(属性)"></a>attribute(属性)</h3><ul>
 <li>color  颜色</li>
@@ -277,8 +274,7 @@
 <li>THREE.AxisHelper()</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> axisHelper = <span class="keyword">new</span> THREE.AxisHelper(<span class="number">350</span>);</span><br><span class="line">scene.add(axisHelper)</span><br></pre></td></tr></table></figure>
-<pre><code>添加进去即可
-</code></pre>
+<p>&nbsp;&nbsp;添加进去即可</p>
 
         </div>
 

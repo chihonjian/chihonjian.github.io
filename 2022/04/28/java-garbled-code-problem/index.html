@@ -240,15 +240,14 @@
             <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&nbsp;&nbsp;最近遇到一个问题，ide控制台输出文件内容时候存在中文乱码问题。一度查询了很多种方式方法。</p>
 <p><a href="./1651128666267.png" data-fancybox="group" data-caption="1651128666267.png"><img src="/2022/04/28/java-garbled-code-problem/1651128666267.png"></a></p>
 <p>&nbsp;&nbsp;简单读取文件后，比对源文件发现中文乱码了。</p>
-<pre><code>&lt;a href=&#39;./1651128762374.png&#39; data-fancybox=&quot;group&quot; data-caption=&quot;1651128762374.png&quot;&gt;![](1651128762374.png)&lt;/a&gt;
-</code></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1651128762374.png" data-fancybox="group" data-caption="1651128762374.png"><img src="/2022/04/28/java-garbled-code-problem/1651128762374.png"></a></p>
 <p>&nbsp;&nbsp;排除了文件编码错误，ided编码错误，就算更改了idea控制台的显示还是错误，网上的教程都不管用，直到~……….</p>
 <p>&nbsp;&nbsp;我发现了一篇文件为: JDK18编码是为GBK的情况之后~</p>
 <blockquote>
 <p>oracle看了一下更新了jdk18, jdk18编码是GBK,（之前的都是UTF-8）,解码却是UTF-8，就造成这样的乱码了<br>解决方法：把jdk18删了，去oracle 官网上下载 jdk17,重新设置环境变量，把idea的路径修改成jdk17再重新打开就好了 ~~~</p>
 </blockquote>
 <h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>&nbsp;&nbsp;经过排查了如下，发现在使用控制台默认编码GBK打印时候正常。</p>
-<p><a href="./1651129113349.png" data-fancybox="group" data-caption="1651129113349.png"><img src="/2022/04/28/java-garbled-code-problem/1651129113349.png"></a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1651129113349.png" data-fancybox="group" data-caption="1651129113349.png"><img src="/2022/04/28/java-garbled-code-problem/1651129113349.png"></a></p>
 <p><img src="/2022/04/28/java-garbled-code-problem/java-garbled-code-problem/1651129130348.png" alt="img"></p>
 <p>&nbsp;&nbsp;我直接更换了JDK17解决问题，表示离谱，记录排坑。</p>
 <h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>&nbsp;&nbsp;小伙伴说了，JDK8与JDK17为稳定版本，其他版本慎用。</p>

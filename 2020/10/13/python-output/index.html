@@ -238,28 +238,21 @@
 
         <div class="post-content">
             <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="问题情况"><a href="#问题情况" class="headerlink" title="问题情况"></a>问题情况</h3><p>我使用基于nodejs的pm2部署python服务的时候，发现python服务器输出的日志在pm2的logs中显示的乱码，windows情况下，情况如下：</p>
-<p><a href="./output-1.jpg" data-fancybox="group" data-caption="日志乱码"><img src="/2020/10/13/python-output/output-1.jpg"></a></p>
-<pre><code>发现我输出的中文内容全部是乱码，会导致我看不到日志内容
-</code></pre>
-<h3 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h3><pre><code>导致这个问题的原因是因为python输出的编码内容与命令行的不对应，编码可能为:GB2312,GBK等，存在无法识别的中文的可能性
-
-python3.*版本中，print不仅仅是一个打印，它还是一个函数、方法。
-</code></pre>
+<p><a href="./output-1.jpg" data-fancybox="group" data-caption="日志乱码"><a href="./output-1.jpg" data-fancybox="group" data-caption="output-1.jpg"><img src="/2020/10/13/python-output/output-1.jpg"></a></a></p>
+<p>&nbsp;&nbsp;发现我输出的中文内容全部是乱码，会导致我看不到日志内容</p>
+<h3 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h3><p>&nbsp;&nbsp;导致这个问题的原因是因为python输出的编码内容与命令行的不对应，编码可能为:GB2312,GBK等，存在无法识别的中文的可能性</p>
+<p>&nbsp;&nbsp;python3.*版本中，print不仅仅是一个打印，它还是一个函数、方法。</p>
 <blockquote>
 <p>在python中,print语句实现打印，从技术角度来说，这是把一个或多个对象转换为其文本表达式形式，然后发送给标准输出流或者类似的文件流，更详细的说，打印与文件和流的概念紧密相连。</p>
 <p>我们都知道在python中，向一个文件写东西是通过类似file.write(str)方法实现的，而你可能没想到print语句执行的操作其实也是一个写操作，不过他把我们从外设输入的数据写到了stdout流，并进行了一些特定的格式化。当然，和文件方法不通，在执行打印操作是，不需要将对象转换为字符串（print已经帮我们做好了）。《 <a target="_blank" rel="noopener" href="https://blog.csdn.net/he_and/article/details/80675070">https://blog.csdn.net/he_and/article/details/80675070</a> 》</p>
 </blockquote>
-<h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><pre><code>知道了问题所在，我可以重新sys.stdout的编码，强制为UTF-8的形式输出，python3版本中的filter类，我们可以重写这个类，代码如下：
-</code></pre>
+<h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><p>&nbsp;&nbsp;知道了问题所在，我可以重新sys.stdout的编码，强制为UTF-8的形式输出，python3版本中的filter类，我们可以重写这个类，代码如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">filter</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,target</span>):</span></span><br><span class="line">		self.target=target</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">write</span>(<span class="params">self,s</span>):</span></span><br><span class="line">		self.target.buffer.write(s.encode(<span class="string">&quot;utf-8&quot;</span>))</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">flush</span>(<span class="params">self</span>):</span></span><br><span class="line">		self.target.flush()</span><br><span class="line"></span><br><span class="line">sys.stdout=<span class="built_in">filter</span>(sys.stdout);</span><br></pre></td></tr></table></figure>
-<pre><code>重写filter类，然后实例化它，并传入sys.stdout的输出流，则重写方法`write`以utf-8的方式重新写入buffer流，就能够让print所以的输出能够以utf-8的编码形式输出。
-
-后续，把这段代码封装成一个encodefix.py文件简单的引入所需要的模块中使用即可
-</code></pre>
-<p><a href="./output-2.jpg" data-fancybox="group" data-caption="引入模块"><img src="/2020/10/13/python-output/output-2.jpg"></a></p>
-<h3 id="引入后的日志"><a href="#引入后的日志" class="headerlink" title="引入后的日志"></a>引入后的日志</h3><pre><code>引入后，日志显示正常
-</code></pre>
-<p><a href="./output-3.jpg" data-fancybox="group" data-caption="日志正常"><img src="/2020/10/13/python-output/output-3.jpg"></a></p>
+<p>&nbsp;&nbsp;重写filter类，然后实例化它，并传入sys.stdout的输出流，则重写方法<code>write</code>以utf-8的方式重新写入buffer流，就能够让print所以的输出能够以utf-8的编码形式输出。</p>
+<p>&nbsp;&nbsp;后续，把这段代码封装成一个encodefix.py文件简单的引入所需要的模块中使用即可</p>
+<p><a href="./output-2.jpg" data-fancybox="group" data-caption="引入模块"><a href="./output-2.jpg" data-fancybox="group" data-caption="output-2.jpg"><img src="/2020/10/13/python-output/output-2.jpg"></a></a></p>
+<h3 id="引入后的日志"><a href="#引入后的日志" class="headerlink" title="引入后的日志"></a>引入后的日志</h3><p>&nbsp;&nbsp;引入后，日志显示正常</p>
+<p><a href="./output-3.jpg" data-fancybox="group" data-caption="日志正常"><a href="./output-3.jpg" data-fancybox="group" data-caption="output-3.jpg"><img src="/2020/10/13/python-output/output-3.jpg"></a></a></p>
 <h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><blockquote>
 <p>发现在windows老是遇到一些奇奇怪怪的问题，记录一下，踩过的坑不能老是跌倒，顺便了解一下print的实现原理，还是挺有意思的。这个方法也是实验室大哥教的我，实在强悍，嘿嘿，就这样。</p>
 </blockquote>

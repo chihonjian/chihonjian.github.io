@@ -249,8 +249,7 @@
 <h4 id="接着编译安装mysql-server文件"><a href="#接着编译安装mysql-server文件" class="headerlink" title="接着编译安装mysql-server文件"></a>接着编译安装mysql-server文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mysql-server </span><br></pre></td></tr></table></figure>
 <p><strong>完毕后，mysql就可以正常运行了</strong></p>
 <hr>
-<h2 id="mysql的基础配置"><a href="#mysql的基础配置" class="headerlink" title="mysql的基础配置"></a>mysql的基础配置</h2><pre><code>需要运行mysql我们还需要配置一下`my.cnf`文件
-</code></pre>
+<h2 id="mysql的基础配置"><a href="#mysql的基础配置" class="headerlink" title="mysql的基础配置"></a>mysql的基础配置</h2><p>&nbsp;&nbsp;需要运行mysql我们还需要配置一下<code>my.cnf</code>文件</p>
 <h3 id="配置my-cnf文件"><a href="#配置my-cnf文件" class="headerlink" title="配置my.cnf文件"></a>配置my.cnf文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/my.cnf</span><br></pre></td></tr></table></figure>
 <p> 配置文件写入如下：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">#</span><br><span class="line"># Remove leading # and set to the amount of RAM for the most important data</span><br><span class="line"># cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.</span><br><span class="line"># innodb_buffer_pool_size = 128M</span><br><span class="line">#</span><br><span class="line"># Remove leading # to turn on a very important data integrity option: logging</span><br><span class="line"># changes to the binary log between backups.</span><br><span class="line"># log_bin</span><br><span class="line">#</span><br><span class="line"># Remove leading # to set options mainly useful for reporting servers.</span><br><span class="line"># The server defaults are faster for transactions and fast SELECTs.</span><br><span class="line"># Adjust sizes as needed, experiment to find the optimal values.</span><br><span class="line"># join_buffer_size = 128M</span><br><span class="line"># sort_buffer_size = 2M</span><br><span class="line"># read_rnd_buffer_size = 2M</span><br><span class="line">datadir=/var/lib/mysql</span><br><span class="line">socket=/var/lib/mysql/mysql.sock</span><br><span class="line">server_id = 1</span><br><span class="line">expire_logs_days = 3</span><br><span class="line"> </span><br><span class="line"># Disabling symbolic-links is recommended to prevent assorted security risks</span><br><span class="line">symbolic-links=0</span><br><span class="line"> </span><br><span class="line">log-error=/var/log/mysqld.log</span><br><span class="line">pid-file=/var/run/mysqld/mysqld.pid</span><br></pre></td></tr></table></figure>
@@ -269,12 +268,9 @@
 <p>5.创建用户</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> ‘用户名‘@‘<span class="number">120.36</span><span class="number">.7</span><span class="number">.97</span>‘ IDENTIFIED <span class="keyword">BY</span> ‘密码‘;</span><br></pre></td></tr></table></figure>
 <h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>mysql的权限控制是基于user表来实现的</p>
-<pre><code>通过设置user账户的IP，如果使用 %则任意IP都可以通过远程访问此数据库。
-
-通过grant [update,insert,delete,select,all] on database . tables to &#39;账户&#39;@‘IP地址’可以为用户添加不同的权限
-
-在生产环境中，一般不要使用%开放IP地址登录，最好是本地或者内网或指定IP访问。
-</code></pre>
+<p>&nbsp;&nbsp;通过设置user账户的IP，如果使用 %则任意IP都可以通过远程访问此数据库。</p>
+<p>&nbsp;&nbsp;通过grant [update,insert,delete,select,all] on database . tables to ‘账户‘@‘IP地址’可以为用户添加不同的权限</p>
+<p>&nbsp;&nbsp;在生产环境中，一般不要使用%开放IP地址登录，最好是本地或者内网或指定IP访问。</p>
 
         </div>
 

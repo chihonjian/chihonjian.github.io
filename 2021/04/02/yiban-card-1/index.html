@@ -238,47 +238,31 @@
 
         <div class="post-content">
             <hr>
-<h2 id="随便说说"><a href="#随便说说" class="headerlink" title="随便说说"></a>随便说说</h2><pre><code>疫情时期，每个学校放假了每天都需要进行打卡，实时监控我们学生的基本情况，无可厚非的事情，但是一般情况下疫情信息资料不会有太大变化，而每次选择点击同样的东西太累了。所以我在保证资料真实可靠的情况下，对某APP进行一定的分析，发挥懒的本质。仅供学习交流。
-
-我们学校用的是[**]App进行打卡，而且这款APP没有web版本，所以要抓取源接口，需要对这款APP进行分析了，开干开干
-</code></pre>
-<hr>
-<h2 id="分析APP"><a href="#分析APP" class="headerlink" title="分析APP"></a>分析APP</h2><h3 id="抓包软件"><a href="#抓包软件" class="headerlink" title="抓包软件"></a>抓包软件</h3><pre><code>抓包软件有非常多的选择，我尝试过用`Fiddler`抓包，但是安卓7.0以上版本不支持外部证书安装了，所以无法使用Fiddler进行抓包测试，我选择了这一款 `HttpCanary`一款比较优秀的手机抓包APP，直接安装在手机中，配置完成后就可以成功了抓取手机的安装包了
-</code></pre>
+<h2 id="随便说说"><a href="#随便说说" class="headerlink" title="随便说说"></a>随便说说</h2><p>&nbsp;&nbsp;疫情时期，每个学校放假了每天都需要进行打卡，实时监控我们学生的基本情况，无可厚非的事情，但是一般情况下疫情信息资料不会有太大变化，而每次选择点击同样的东西太累了。所以我在保证资料真实可靠的情况下，对某APP进行一定的分析，发挥懒的本质。仅供学习交流。</p>
+<h2 id="nbsp-nbsp-我们学校用的是-App进行打卡，而且这款APP没有web版本，所以要抓取源接口，需要对这款APP进行分析了，开干开干"><a href="#nbsp-nbsp-我们学校用的是-App进行打卡，而且这款APP没有web版本，所以要抓取源接口，需要对这款APP进行分析了，开干开干" class="headerlink" title="&nbsp;&nbsp;我们学校用的是[**]App进行打卡，而且这款APP没有web版本，所以要抓取源接口，需要对这款APP进行分析了，开干开干"></a>&nbsp;&nbsp;我们学校用的是[**]App进行打卡，而且这款APP没有web版本，所以要抓取源接口，需要对这款APP进行分析了，开干开干</h2><h2 id="分析APP"><a href="#分析APP" class="headerlink" title="分析APP"></a>分析APP</h2><h3 id="抓包软件"><a href="#抓包软件" class="headerlink" title="抓包软件"></a>抓包软件</h3><p>&nbsp;&nbsp;抓包软件有非常多的选择，我尝试过用<code>Fiddler</code>抓包，但是安卓7.0以上版本不支持外部证书安装了，所以无法使用Fiddler进行抓包测试，我选择了这一款 <code>HttpCanary</code>一款比较优秀的手机抓包APP，直接安装在手机中，配置完成后就可以成功了抓取手机的安装包了</p>
 <p><a href="./yiban-1.jpg" data-fancybox="group" data-caption="HttpCanary工具"><img src="/2021/04/02/yiban-card-1/yiban-1.jpg"></a></p>
-<pre><code>以上是软件的基本界面，点击右下方启动按钮成功运行，就可以打开APP进行模拟登陆操作，获取接口，如图:
-</code></pre>
+<p>&nbsp;&nbsp;以上是软件的基本界面，点击右下方启动按钮成功运行，就可以打开APP进行模拟登陆操作，获取接口，如图:</p>
 <p><a href="./yiban-2.jpg" data-fancybox="group" data-caption="HttpCanary启动"><img src="/2021/04/02/yiban-card-1/yiban-2.jpg"></a></p>
-<h3 id="开启APP"><a href="#开启APP" class="headerlink" title="开启APP"></a>开启APP</h3><pre><code>打开程序，进行模拟登陆操作，输入账号密码，点击登陆
-</code></pre>
+<h3 id="开启APP"><a href="#开启APP" class="headerlink" title="开启APP"></a>开启APP</h3><p>&nbsp;&nbsp;打开程序，进行模拟登陆操作，输入账号密码，点击登陆</p>
 <p><a href="./yiban-3.jpg" data-fancybox="group" data-caption="登陆易班"><img src="/2021/04/02/yiban-card-1/yiban-3.jpg"></a></p>
-<pre><code>然后回到HttpCanary程序中，查看捕捉到的接口信息
-</code></pre>
+<p>&nbsp;&nbsp;然后回到HttpCanary程序中，查看捕捉到的接口信息</p>
 <p><a href="./yiban-4.jpg" data-fancybox="group" data-caption="登陆接口信息"><img src="/2021/04/02/yiban-card-1/yiban-4.jpg"></a></p>
-<h2 id="分析APP接口"><a href="#分析APP接口" class="headerlink" title="分析APP接口"></a>分析APP接口</h2><h3 id="获取登录接口"><a href="#获取登录接口" class="headerlink" title="获取登录接口"></a>获取登录接口</h3><pre><code>可以看到图片中我们截获了许多的GET、POST请求操作，然后我们一个个点击查看一下，看看哪个是我们的登录接口，登录接口找到：
-</code></pre>
+<h2 id="分析APP接口"><a href="#分析APP接口" class="headerlink" title="分析APP接口"></a>分析APP接口</h2><h3 id="获取登录接口"><a href="#获取登录接口" class="headerlink" title="获取登录接口"></a>获取登录接口</h3><p>&nbsp;&nbsp;可以看到图片中我们截获了许多的GET、POST请求操作，然后我们一个个点击查看一下，看看哪个是我们的登录接口，登录接口找到：</p>
 <p><a href="./yiban-5.jpg" data-fancybox="group" data-caption="登录接口找到"><img src="/2021/04/02/yiban-card-1/yiban-5.jpg"></a></p>
-<h3 id="获取校本化接口"><a href="#获取校本化接口" class="headerlink" title="获取校本化接口"></a>获取校本化接口</h3><pre><code>还是同样的步骤，不过为了简单看出接口，我们先清理一下之前的接口，在重新获取。回到程序，点击校本化。
-</code></pre>
+<h3 id="获取校本化接口"><a href="#获取校本化接口" class="headerlink" title="获取校本化接口"></a>获取校本化接口</h3><p>&nbsp;&nbsp;还是同样的步骤，不过为了简单看出接口，我们先清理一下之前的接口，在重新获取。回到程序，点击校本化。</p>
 <p><a href="./yiban-6.jpg" data-fancybox="group" data-caption="点击校本化"><img src="/2021/04/02/yiban-card-1/yiban-6.jpg"></a></p>
-<pre><code>回到抓包工具，查看获取到的新的接口信息，找到校本化接口
-</code></pre>
+<p>&nbsp;&nbsp;回到抓包工具，查看获取到的新的接口信息，找到校本化接口</p>
 <p><a href="./yiban-7.jpg" data-fancybox="group" data-caption="校本化接口信息"><img src="/2021/04/02/yiban-card-1/yiban-7.jpg"></a></p>
-<h3 id="获取消息列"><a href="#获取消息列" class="headerlink" title="获取消息列"></a>获取消息列</h3><pre><code>需要获取打卡的列表，老样子，点击操作
-</code></pre>
+<h3 id="获取消息列"><a href="#获取消息列" class="headerlink" title="获取消息列"></a>获取消息列</h3><p>&nbsp;&nbsp;需要获取打卡的列表，老样子，点击操作</p>
 <p><a href="./yiban-8.jpg" data-fancybox="group" data-caption="点击疫情消息队列"><img src="/2021/04/02/yiban-card-1/yiban-8.jpg"></a></p>
-<pre><code>获取疫情打卡消息列表
-</code></pre>
+<p>&nbsp;&nbsp;获取疫情打卡消息列表</p>
 <p><a href="./yiban-9.jpg" data-fancybox="group" data-caption="消息列表"><img src="/2021/04/02/yiban-card-1/yiban-9.jpg"></a></p>
-<pre><code>获取到的信息列表
-</code></pre>
-<p><a href="./yiban-10.jpg" data-fancybox="group" data-caption="疫情信息表"><img src="/2021/04/02/yiban-card-1/yiban-10.jpg"></a></p>
-<h3 id="获取提交打卡信息接口"><a href="#获取提交打卡信息接口" class="headerlink" title="获取提交打卡信息接口"></a>获取提交打卡信息接口</h3><pre><code>最后的条件是获取提交打卡的信息接口
-</code></pre>
-<p><a href="./yiban-11.jpg" data-fancybox="group" data-caption="打卡信息接口"><img src="/2021/04/02/yiban-card-1/yiban-11.jpg"></a></p>
-<pre><code>基本信息集合
-</code></pre>
-<p><a href="./yiban-12.jpg" data-fancybox="group" data-caption="打卡信息集合"><img src="/2021/04/02/yiban-card-1/yiban-12.jpg"></a></p>
+<p>&nbsp;&nbsp;获取到的信息列表</p>
+<p><a href="./yiban-10.jpg" data-fancybox="group" data-caption="疫情信息表"><a href="./yiban-10.jpg" data-fancybox="group" data-caption="yiban-10.jpg"><img src="/2021/04/02/yiban-card-1/yiban-10.jpg"></a></a></p>
+<h3 id="获取提交打卡信息接口"><a href="#获取提交打卡信息接口" class="headerlink" title="获取提交打卡信息接口"></a>获取提交打卡信息接口</h3><p>&nbsp;&nbsp;最后的条件是获取提交打卡的信息接口</p>
+<p><a href="./yiban-11.jpg" data-fancybox="group" data-caption="打卡信息接口"><a href="./yiban-11.jpg" data-fancybox="group" data-caption="yiban-11.jpg"><img src="/2021/04/02/yiban-card-1/yiban-11.jpg"></a></a></p>
+<p>&nbsp;&nbsp;基本信息集合</p>
+<p><a href="./yiban-12.jpg" data-fancybox="group" data-caption="打卡信息集合"><a href="./yiban-12.jpg" data-fancybox="group" data-caption="yiban-12.jpg"><img src="/2021/04/02/yiban-card-1/yiban-12.jpg"></a></a></p>
 <h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><blockquote>
 <p>通过抓包的软件的分析，我们可以看出，APP的接口是通过登录的token以及相关的CSRF以及UID等配合获取，目前已经获取到了提交打卡信息所需要的全部接口，就可以到此为止了，学习交流</p>
 <p>后面再写关于代码实现的部分吧，点到为止，支持国家！爱国爱党！睡觉</p>

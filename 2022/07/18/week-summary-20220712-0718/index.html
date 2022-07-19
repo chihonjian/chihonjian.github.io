@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Hans Jian">
+
+
+
+
+
+<title>20220712-0718-周总结 | 小健的日记</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/js/love.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.js"></script>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.css">
+                
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">小健的个人小窝</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E5%91%A8%E8%AE%B0">周记</a>
+                
+                    <a class="menu-item" href="/categirues/%E7%AC%94%E8%BF%B9">笔迹项目</a>
+                
+                    <a class="menu-item" href="/categories/%E5%9F%BA%E7%A1%80">学习基础</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">小健的个人小窝</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; 菜单</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E5%91%A8%E8%AE%B0">周记</a>
+                
+                    <a class="menu-item" href="/categirues/%E7%AC%94%E8%BF%B9">笔迹项目</a>
+                
+                    <a class="menu-item" href="/categories/%E5%9F%BA%E7%A1%80">学习基础</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开目录</a>
+        <a onclick="go_top()">回到顶部</a>
+        <a onclick="go_bottom()">转去最低</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "收起目录"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "展开目录"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">20220712-0718-周总结</h1>
+            
+                <div class="post-meta">
+                    
+                        作者: <a itemprop="author" rel="author" href="/">Hans Jian</a>
+                    
+
+                    
+                        <span class="post-time">
+                        日期: <a href="#">2022-07-18&nbsp;&nbsp;16:51:30</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    分类:
+                            
+                                <a href="/categories/%E5%91%A8%E8%AE%B0/">周记</a>
+                            
+                        </span>
+                    
+                        <span id="busuanzi_container_page_pv">
+                        &nbsp;本文总阅读量:<span style="color:#2d96bd" id="busuanzi_value_page_pv"></span><span style="color:#2d96bd">次</span>
+                        </span>
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><h2 id="鉴权项目的完成"><a href="#鉴权项目的完成" class="headerlink" title="鉴权项目的完成"></a>鉴权项目的完成</h2><p>&nbsp;&nbsp;上周顺利完成了公司的一个项目中的鉴权模块，模块是基于Python研发，研发逻辑是在上篇总结提到的RSA加密为核心。研发过程中需要被保证通过机器码、授权文件两者相同验证才可以保证。并且基于Python库-pyinstaller封装成可执行文件，用于在不同平台，如windows、linux下进行调用。</p>
+<p><a href="./1658134911627.png" data-fancybox="group" data-caption="1658134911627.png"><img src="/2022/07/18/week-summary-20220712-0718/1658134911627.png"></a></p>
+<h2 id="MES项目"><a href="#MES项目" class="headerlink" title="MES项目"></a>MES项目</h2><p>&nbsp;&nbsp;目前在收尾状态，补充了一些绩效需求的研发代码。基于nacos框架的微服务通过feign可以访问不同框架下的服务信息。</p>
+<blockquote>
+<p>Feign远程调用，核心就是通过一系列的封装和处理，将以JAVA注解的方式定义的远程调用API接口，最终转换成HTTP的请求形式，然后将HTTP的请求的响应结果，解码成JAVA Bean，放回给调用者。</p>
+</blockquote>
+<p>&nbsp;&nbsp;项目已经快写了近一个月了，每一次从中用从前的经验、方法去研发，但其中我可以发觉在团队协作中，需要不断调整自己的方式方法。从代码的风格逻辑到现在的不断调整，都是进步的一个过程。明显感觉到自己的代码考虑的因素变多，但因为工期的问题也存在一些不足之处。在写mapper的xml文件中，需要保证文件路径的绝对引入。不然在微服务调用中会存在报错。</p>
+<h3 id="公有模块"><a href="#公有模块" class="headerlink" title="公有模块"></a>公有模块</h3><p>&nbsp;&nbsp;甲方说需要把之前写的mapper、domain的重复模块代码放置公有类中，话说原本之前开发若定下，则可以有意识的去调整，结果在项目逐渐研发完成的情况下调整代码结构，则会产生若干的问题情况需要去解决。</p>
+<p><a href="./1658230162937.png" data-fancybox="group" data-caption="1658230162937.png"><img src="/2022/07/18/week-summary-20220712-0718/1658230162937.png"></a></p>
+<p>&nbsp;&nbsp;疯狂报错~，还在解决当中。</p>
+<h1 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h1><h2 id="音响"><a href="#音响" class="headerlink" title="音响"></a>音响</h2><p>&nbsp;&nbsp;新买了一个音响和鼠标，提升一下生活品质，音响是索尼的性价比，才几十块钱，美滋滋。</p>
+<p><a href="./1658230779628.png" data-fancybox="group" data-caption="1658230779628.png"><img src="/2022/07/18/week-summary-20220712-0718/1658230779628.png"></a></p>
+<h2 id="滑肉"><a href="#滑肉" class="headerlink" title="滑肉"></a>滑肉</h2><p>&nbsp;&nbsp;尝试自己动手第一次做滑肉，先使用红薯粉（超市的红薯粉非常不好），肉切小块腌制一下，开水混合。然后煮的过程中粉包裹不到肉，全部掉下去了，勉强算成功？味道还是可以的。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1658230390060.png" data-fancybox="group" data-caption="1658230390060.png"><img src="/2022/07/18/week-summary-20220712-0718/1658230390060.png"></a></p>
+<h2 id="海鲜面"><a href="#海鲜面" class="headerlink" title="海鲜面"></a>海鲜面</h2><p>&nbsp;&nbsp;自己动手晚上整了一碗海鲜面，说是海鲜其实里面就鱼丸、蟹肉棒，还有鸡蛋。配合几个辣椒还有老干妈，味道一流。只是平时下班回家后煮点东西好累感觉。而且天气很热。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1658230531694.png" data-fancybox="group" data-caption="1658230531694.png"><img src="/2022/07/18/week-summary-20220712-0718/1658230531694.png"></a></p>
+<h2 id="周末聚会"><a href="#周末聚会" class="headerlink" title="周末聚会"></a>周末聚会</h2><p>&nbsp;&nbsp;从搬到新环境跟小伙伴一起隔壁邻居，火锅都不知道整了多少次了，新房入住来一次、心情开心来一次哈哈哈。这周末我自己动手做了卤味，虽然味道不够重，但能吃！然后还有大家伙一起吃饭的氛围，还是非常充实的周末时光。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1658230658795.png" data-fancybox="group" data-caption="1658230658795.png"><img src="/2022/07/18/week-summary-20220712-0718/1658230658795.png"></a></p>
+<h2 id="生活基本照"><a href="#生活基本照" class="headerlink" title="生活基本照"></a>生活基本照</h2><h3 id="番薯"><a href="#番薯" class="headerlink" title="番薯"></a>番薯</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1658230686885.png" data-fancybox="group" data-caption="1658230686885.png"><img src="/2022/07/18/week-summary-20220712-0718/1658230686885.png"></a></p>
+<h3 id="下棋"><a href="#下棋" class="headerlink" title="下棋"></a>下棋</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1658230709755.png" data-fancybox="group" data-caption="1658230709755.png"><img src="/2022/07/18/week-summary-20220712-0718/1658230709755.png"></a></p>
+<h1 id="结"><a href="#结" class="headerlink" title="结"></a>结</h1><p>&nbsp;&nbsp;生活总是不断调整自己的一个过程，我学着慢慢学会妥协自己，但我不想轻言放弃，我希望自己能够不一样，能够走的更远，飞得更高。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>文章作者:</span>
+                        <span>Hans Jian</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>文章链接:</span>
+                        <span><a href="http://chihongjian.cn/2022/07/18/week-summary-20220712-0718/">http://chihongjian.cn/2022/07/18/week-summary-20220712-0718/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>版权声明:</span>
+                        <span>许可证书 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a></span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E5%91%A8%E8%AE%B0/"># 周记</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">返回</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2022/07/14/java-rsa/">基于java的RSA-非对称加密算法的基本实现</a>
+            
+        </section>
+        <br>
+            <div class="post-content" id="vcomments"></div> 
+        <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'fuW3YUhpFFC5Y4qcyvU5g4ko-gzGzoHsz',
+            appKey: '6nnduwkR9FLH5lUq7IVLPtsB'
+        })
+        </script>
+
+    </article>
+
+</div>
+
+            
+        </div>
+
+        <footer id="footer" class="footer">
+	
+    <div class="copyright">
+        <span>Copyright © 2021 小健的个人日记•Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+       	<span id="busuanzi_container_site_pv">
+    			 &本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+			</span>
+    </div>
+
+</footer>
+
+
+    </div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

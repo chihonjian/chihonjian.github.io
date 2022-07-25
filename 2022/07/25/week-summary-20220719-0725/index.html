@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Hans Jian">
+
+
+
+
+
+<title>20220719-0725-周总结 | 小健的日记</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/js/love.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.js"></script>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.css">
+                
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">小健的个人小窝</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E5%91%A8%E8%AE%B0">周记</a>
+                
+                    <a class="menu-item" href="/categirues/%E7%AC%94%E8%BF%B9">笔迹项目</a>
+                
+                    <a class="menu-item" href="/categories/%E5%9F%BA%E7%A1%80">学习基础</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">小健的个人小窝</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; 菜单</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E5%91%A8%E8%AE%B0">周记</a>
+                
+                    <a class="menu-item" href="/categirues/%E7%AC%94%E8%BF%B9">笔迹项目</a>
+                
+                    <a class="menu-item" href="/categories/%E5%9F%BA%E7%A1%80">学习基础</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开目录</a>
+        <a onclick="go_top()">回到顶部</a>
+        <a onclick="go_bottom()">转去最低</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "收起目录"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "展开目录"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">20220719-0725-周总结</h1>
+            
+                <div class="post-meta">
+                    
+                        作者: <a itemprop="author" rel="author" href="/">Hans Jian</a>
+                    
+
+                    
+                        <span class="post-time">
+                        日期: <a href="#">2022-07-25&nbsp;&nbsp;11:58:13</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    分类:
+                            
+                                <a href="/categories/%E5%91%A8%E8%AE%B0/">周记</a>
+                            
+                        </span>
+                    
+                        <span id="busuanzi_container_page_pv">
+                        &nbsp;本文总阅读量:<span style="color:#2d96bd" id="busuanzi_value_page_pv"></span><span style="color:#2d96bd">次</span>
+                        </span>
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><h2 id="java异常机制"><a href="#java异常机制" class="headerlink" title="java异常机制"></a>java异常机制</h2><p>&nbsp;&nbsp;最近在写java项目中又重新温习了一遍异常机制。以前写node的时候用的小伙伴写好的异常封装类，已经可以实现对任意异常的捕获，对任意异常的判断并统一返回状态值。但知其然，不知其所以然，用他人封装的代码是很舒服，但不了解其中的规则确是没有意义的。温故而知新。</p>
+<p>&nbsp;&nbsp;借用网络的图片来看看java中的异常处理类型。</p>
+<p>&nbsp;&nbsp;<a href="./1658730507013.png" data-fancybox="group" data-caption="1658730507013.png"><img src="/2022/07/25/week-summary-20220719-0725/1658730507013.png"></a></p>
+<p>&nbsp;&nbsp;Throwable是所有异常和错误的超类，并让子类可以描述不同的异常情况。Throwable共有两个子类：Exception、Error，用于表明错误的情况。</p>
+<h3 id="Exception-异常"><a href="#Exception-异常" class="headerlink" title="Exception(异常)"></a>Exception(异常)</h3><p>&nbsp;&nbsp;异常类分为RuntimeException、非运行时异常，这里简单复习一下运行时异常的概念与java项目中的应用。</p>
+<p>&nbsp;&nbsp;运行时异常代码是可以在程序中捕获的，能够被操作的，一般是由于程序猿写的时候业务逻辑引发的行为；常见的有空指针异常、下标越界异常等。这些异常在编译阶段是可以正常通过的，不进行检查，所以：人才是程序最大的BUG(狗头)。</p>
+<p>&nbsp;&nbsp;运行时异常是可以进行捕获检查的，所以通常在写web项目时，项目会自定义自己的全局异常类用于捕获运行时异常信息，不展示系统级、业务级错误提供用户，而是能够自定义错误信息展示用户，保证用户体验。若依框架下的全局自定义异常处理大神写的非常不错，用于学习，基础代码如下：</p>
+<p>&nbsp;&nbsp;首先先定义异常类型，若依微服务中在ruoyi-common-core模块下的exception定义了非常多的异常类型，有以下包括了file类型异常、用户异常、服务异常类等。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1658731490802.png" data-fancybox="group" data-caption="1658731490802.png"><img src="/2022/07/25/week-summary-20220719-0725/1658731490802.png"></a></p>
+<p>&nbsp;&nbsp;然后还需要写一个全局异常捕获类，用于捕获异常类型。若依全局异常类片段代码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sc.common.security.handler;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.validation.BindException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.HttpRequestMethodNotSupportedException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.MethodArgumentNotValidException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ExceptionHandler;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestControllerAdvice;</span><br><span class="line"><span class="keyword">import</span> com.sc.common.core.constant.HttpStatus;</span><br><span class="line"><span class="keyword">import</span> com.sc.common.core.exception.DemoModeException;</span><br><span class="line"><span class="keyword">import</span> com.sc.common.core.exception.InnerAuthException;</span><br><span class="line"><span class="keyword">import</span> com.sc.common.core.exception.ServiceException;</span><br><span class="line"><span class="keyword">import</span> com.sc.common.core.exception.auth.NotPermissionException;</span><br><span class="line"><span class="keyword">import</span> com.sc.common.core.exception.auth.NotRoleException;</span><br><span class="line"><span class="keyword">import</span> com.sc.common.core.utils.StringUtils;</span><br><span class="line"><span class="keyword">import</span> com.sc.common.core.web.domain.AjaxResult;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 全局异常处理器</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> sc</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RestControllerAdvice</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GlobalExceptionHandler</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 权限码异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ExceptionHandler(NotPermissionException.class)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> AjaxResult <span class="title">handleNotPermissionException</span><span class="params">(NotPermissionException e, HttpServletRequest request)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        String requestURI = request.getRequestURI();</span><br><span class="line">        log.error(<span class="string">&quot;请求地址&#x27;&#123;&#125;&#x27;,权限码校验失败&#x27;&#123;&#125;&#x27;&quot;</span>, requestURI, e.getMessage());</span><br><span class="line">        <span class="keyword">return</span> AjaxResult.error(HttpStatus.FORBIDDEN, <span class="string">&quot;没有访问权限，请联系管理员授权&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 角色权限异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ExceptionHandler(NotRoleException.class)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> AjaxResult <span class="title">handleNotRoleException</span><span class="params">(NotRoleException e, HttpServletRequest request)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        String requestURI = request.getRequestURI();</span><br><span class="line">        log.error(<span class="string">&quot;请求地址&#x27;&#123;&#125;&#x27;,角色权限校验失败&#x27;&#123;&#125;&#x27;&quot;</span>, requestURI, e.getMessage());</span><br><span class="line">        <span class="keyword">return</span> AjaxResult.error(HttpStatus.FORBIDDEN, <span class="string">&quot;没有访问权限，请联系管理员授权&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 请求方式不支持</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ExceptionHandler(HttpRequestMethodNotSupportedException.class)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> AjaxResult <span class="title">handleHttpRequestMethodNotSupported</span><span class="params">(HttpRequestMethodNotSupportedException e,</span></span></span><br><span class="line"><span class="function"><span class="params">            HttpServletRequest request)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        String requestURI = request.getRequestURI();</span><br><span class="line">        log.error(<span class="string">&quot;请求地址&#x27;&#123;&#125;&#x27;,不支持&#x27;&#123;&#125;&#x27;请求&quot;</span>, requestURI, e.getMethod());</span><br><span class="line">        <span class="keyword">return</span> AjaxResult.error(e.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 业务异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ExceptionHandler(ServiceException.class)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> AjaxResult <span class="title">handleServiceException</span><span class="params">(ServiceException e, HttpServletRequest request)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        log.error(e.getMessage(), e);</span><br><span class="line">        Integer code = e.getCode();</span><br><span class="line">        <span class="keyword">return</span> StringUtils.isNotNull(code) ? AjaxResult.error(code, e.getMessage()) : AjaxResult.error(e.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 拦截未知的运行时异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ExceptionHandler(RuntimeException.class)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> AjaxResult <span class="title">handleRuntimeException</span><span class="params">(RuntimeException e, HttpServletRequest request)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        String requestURI = request.getRequestURI();</span><br><span class="line">        log.error(<span class="string">&quot;请求地址&#x27;&#123;&#125;&#x27;,发生未知异常.&quot;</span>, requestURI, e);</span><br><span class="line">        <span class="keyword">return</span> AjaxResult.error(e.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 系统异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ExceptionHandler(Exception.class)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> AjaxResult <span class="title">handleException</span><span class="params">(Exception e, HttpServletRequest request)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        String requestURI = request.getRequestURI();</span><br><span class="line">        log.error(<span class="string">&quot;请求地址&#x27;&#123;&#125;&#x27;,发生系统异常.&quot;</span>, requestURI, e);</span><br><span class="line">        <span class="keyword">return</span> AjaxResult.error(e.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 自定义验证异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ExceptionHandler(BindException.class)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> AjaxResult <span class="title">handleBindException</span><span class="params">(BindException e)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        log.error(e.getMessage(), e);</span><br><span class="line">        String message = e.getAllErrors().get(<span class="number">0</span>).getDefaultMessage();</span><br><span class="line">        <span class="keyword">return</span> AjaxResult.error(message);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 自定义验证异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ExceptionHandler(MethodArgumentNotValidException.class)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">handleMethodArgumentNotValidException</span><span class="params">(MethodArgumentNotValidException e)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        log.error(e.getMessage(), e);</span><br><span class="line">        String message = e.getBindingResult().getFieldError().getDefaultMessage();</span><br><span class="line">        <span class="keyword">return</span> AjaxResult.error(message);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 内部认证异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ExceptionHandler(InnerAuthException.class)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> AjaxResult <span class="title">handleInnerAuthException</span><span class="params">(InnerAuthException e)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> AjaxResult.error(e.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 演示模式异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ExceptionHandler(DemoModeException.class)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> AjaxResult <span class="title">handleDemoModeException</span><span class="params">(DemoModeException e)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> AjaxResult.error(<span class="string">&quot;演示模式，不允许操作&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;在core定义的异常类型，可以添加到GlobalExceptionHandler全局异常类中，而注解:@RestControllerAdvice引用介绍</p>
+<blockquote>
+<p>@RestControllerAdvice是什么<br>@RestControllerAdvice是一个组合注解，由@ControllerAdvice、@ResponseBody组成，而@ControllerAdvice继承了@Component，因此@RestControllerAdvice本质上是个Component，用于定义@ExceptionHandler，@InitBinder和@ModelAttribute方法，适用于所有使用@RequestMapping方法。<br>————————————————<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/user2025/article/details/105458842">https://blog.csdn.net/user2025/article/details/105458842</a></p>
+</blockquote>
+<p>&nbsp;&nbsp;@RestControllAdvice注解与@ExceptionHandler配合使用时可以用于全局的异常处理。因为@RestControllAdvice注解将会作用到@ReuqestMapping上，相当于说所有的路由下的方法都会被我监控到，如果出现异常，会先寻找有无用户自定义的类型，若没有，则返回系统默认或对应的类型异常。所以在定义异常类时候，运行时异常的配置是默认需要的。</p>
+<p>&nbsp;&nbsp;非运行时异常指的除了RuntimeException以外的异常，类型上都从属Exception类。非运行时异常指的从语法上或编译阶段无法通过的异常，是需要处理的，这种一般程序猿都能够及时的看到，毕竟你不改，你就run不起来。</p>
+<h3 id="ERROR-错误"><a href="#ERROR-错误" class="headerlink" title="ERROR(错误)"></a>ERROR(错误)</h3><blockquote>
+<p>Error 类及其子类：程序中无法处理的错误，表示运行应用程序中出现了严重的错误。</p>
+</blockquote>
+<p>&nbsp;&nbsp;此类型错误一般不允许去实现任意Error类。这些错误不受检异常，当发现此类错误时，应用程序不应该去处理此类错误。</p>
+<h2 id="笔迹项目"><a href="#笔迹项目" class="headerlink" title="笔迹项目"></a>笔迹项目</h2><p>&nbsp;&nbsp;前面几周已经陆续完成了前端基础界面的研发、后端数据库的设计，慢慢的逐步采用研发。需要考虑的太多，感觉还是应该先写出来，但不考虑细致点后面写的一多，容易不好改动，还是思虑多一些。</p>
+<p>&nbsp;&nbsp;这个项目我还是想努力自己个人完成，慢慢写，想到什么写什么，总能够完成的，慢慢来、慢慢来~。晚上一个人在桌前慢慢设计的感觉很好，感兴趣的事情需要时间来沉淀，争取能够在年前出一个版本吧。笔迹项目的记录也该填补一点了。</p>
+<p>&nbsp;&nbsp;好像没有什么其他可以讲的了。</p>
+<h1 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h1><p>&nbsp;&nbsp;已经工作近二个月了，从实验室转变到公司、从学生转变到社会人。直观的感觉是在白天上班的忙碌后，剩下的时间留给自己的不多了，下班后的精力能够明显感觉到不是足够。在校学习的感觉是随心所欲的，有后路的，这里是没有的。</p>
+<p>&nbsp;&nbsp;上周二起了个大早去拜访了MES项目的甲方，他们的人感觉有点怪怪的，不会好好说话，这作为一个程序猿不能忍的好不好。唠嗑了一个小时后，搭晗兄、王哥车回来，中途去洗车了，那个高压水枪减温利器。午后是去永辉附近一家——夫妻饭店吃了个饭。里面的菜抄的确实不错老实说，就是羊排太腻了。有没有一种可能是食堂饭菜太难吃了（dog）</p>
+<p>&nbsp;&nbsp;中间的某个时刻我感觉时间流逝的很快，感觉一下子就到了周末，好像都是在改BUG中度过。食堂饭菜就那几种，然而小伙伴喜欢吃水饺，我真的要被吃吐了。我宁愿吃面条，我也不要吃水饺！</p>
+<p>&nbsp;&nbsp;周六加班了一天，表示党的组织关系转真的很麻烦，需要很多证明，还是需要抽空回家一下，调个休。</p>
+<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>&nbsp;&nbsp;不畏惧未来困难，我将在这流逝的时间中慢慢成长。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>文章作者:</span>
+                        <span>Hans Jian</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>文章链接:</span>
+                        <span><a href="http://chihongjian.cn/2022/07/25/week-summary-20220719-0725/">http://chihongjian.cn/2022/07/25/week-summary-20220719-0725/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>版权声明:</span>
+                        <span>许可证书 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a></span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E5%91%A8%E8%AE%B0/"># 周记</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">返回</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2022/07/18/week-summary-20220712-0718/">20220712-0718-周总结</a>
+            
+        </section>
+        <br>
+            <div class="post-content" id="vcomments"></div> 
+        <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'fuW3YUhpFFC5Y4qcyvU5g4ko-gzGzoHsz',
+            appKey: '6nnduwkR9FLH5lUq7IVLPtsB'
+        })
+        </script>
+
+    </article>
+
+</div>
+
+            
+        </div>
+
+        <footer id="footer" class="footer">
+	
+    <div class="copyright">
+        <span>Copyright © 2021 小健的个人日记•Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+       	<span id="busuanzi_container_site_pv">
+    			 &本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+			</span>
+    </div>
+
+</footer>
+
+
+    </div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

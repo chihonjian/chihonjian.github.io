@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Hans Jian">
+
+
+
+
+
+<title>20220726-0801-周及月度总结 | 小健的日记</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/js/love.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.js"></script>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.css">
+                
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">小健的个人小窝</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E5%91%A8%E8%AE%B0">周记</a>
+                
+                    <a class="menu-item" href="/categirues/%E7%AC%94%E8%BF%B9">笔迹项目</a>
+                
+                    <a class="menu-item" href="/categories/%E5%9F%BA%E7%A1%80">学习基础</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">小健的个人小窝</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; 菜单</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E5%91%A8%E8%AE%B0">周记</a>
+                
+                    <a class="menu-item" href="/categirues/%E7%AC%94%E8%BF%B9">笔迹项目</a>
+                
+                    <a class="menu-item" href="/categories/%E5%9F%BA%E7%A1%80">学习基础</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开目录</a>
+        <a onclick="go_top()">回到顶部</a>
+        <a onclick="go_bottom()">转去最低</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "收起目录"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "展开目录"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">20220726-0801-周及月度总结</h1>
+            
+                <div class="post-meta">
+                    
+                        作者: <a itemprop="author" rel="author" href="/">Hans Jian</a>
+                    
+
+                    
+                        <span class="post-time">
+                        日期: <a href="#">2022-08-01&nbsp;&nbsp;20:23:25</a>
+                        </span>
+                    
+                    
+                        <span id="busuanzi_container_page_pv">
+                        &nbsp;本文总阅读量:<span style="color:#2d96bd" id="busuanzi_value_page_pv"></span><span style="color:#2d96bd">次</span>
+                        </span>
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p>        这一个月是我大学毕业的工作的第一个月，虽然还是身处近四年的实验室，身份的转换还是能够感觉到自己已经从一名学生的身份慢慢转变成一个要能够独立生活在社会中的一份子。这一个月我反思自己技术成长，在自己尚未毕业之时过早的对自己的技术过于自信，没能及时的去学习，巩固自己的基础，在面对不确信未来之下遭遇挫折，很遗憾在自己近一年的时间中，我寻找自己的爱好但确对自己的技术能力没有加强巩固，我应该反省自己，以后不论如何都不应该对缥缈的承诺、不确定的未来情况报以绝对的肯定。时刻要对自己的技术能力巩固提高，不断深入自己的专业所长才能够立于不败之地。</p>
+<p>    技术层面面对普遍的CRUD是在基础的业务逻辑开发下，没有涉猎并发、缓存等业务逻辑，是对我职业生涯经验的一个缺失，我个人需要在这一方面深入挖掘。</p>
+<p>    基础知识决定一切，Java的基础、锁机制、JVM都需要我去了解学习底层，倒也不是说有啥用，但了解完，写的时候思路就会广阔很多。社会面试需求对我们的基础进行一定的了解以及实际的项目经验，以此来勉励自己能够持续学习不断进步，遇到成功事情不骄傲，遇到困难可以暂时被打倒，但要重新站起来出发。</p>
+<h2 id="生活事"><a href="#生活事" class="headerlink" title="生活事"></a>生活事</h2><p>    公司本周进行了团体聚餐，可以感受到聚餐可以有效促进交流。老实说饭菜可以。</p>
+<p><a href="./1660006588768.png" data-fancybox="group" data-caption="1660006588768.png"><img src="/2022/08/01/week-summary-20220726-0801/1660006588768.png"></a></p>
+<p><a href="./1660006593981.png" data-fancybox="group" data-caption="1660006593981.png"><img src="/2022/08/01/week-summary-20220726-0801/1660006593981.png"></a></p>
+<p>    上面已经其实讲了挺多生活的了，这是我毕业的第一个月，半入社会吧算是，在毕业前夕上了人生第一课，为此颓废了近半个月，那时候确实非常痛苦，一半是公司的不负责任，一半归咎到自己的盲目自信，所以这个教训经验告诉我，暂时性的、未来性的成功都是虚的，在面对一个不确信的情况，不能松懈下来，要持续进步。这个道理很深刻，我会铭记一生（dog），不想铭记也不行，真就太深刻了。</p>
+<p>    这一个月生活还是比较开心的，毕竟自己真正的从校园毕业了，拿到了毕业证、学位证。圆满的大学生活让我彻底改变。大学四年下来我真正的学会了一项技能、自我学习能力。我能受益终身。</p>
+<p>    这一个月换了新环境，一个新租的房子，一个人生活很享受。每天按时上下班，回来吃个饭，我感觉自己是一个不会感受生活的人，我尽量留意并记录自己的生活美好，一讲自己个人的生活感觉就没啥可讲的，就如此吧嘎。</p>
+<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>      是男儿总要走向远方，走向远方是为了让生命更辉煌。走在崎岖不平的路上,年轻的眼眸里装着梦更装着思想。不论是孤独地走着还是结伴同行，让每一个脚印都坚实而有力量。我们学着承受痛苦。学着把眼泪像珍珠一样收藏,把眼泪都贮存在成功的那一天流淌，那一天，哪怕流它个大海汪洋。——汪国真</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>文章作者:</span>
+                        <span>Hans Jian</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>文章链接:</span>
+                        <span><a href="http://chihongjian.cn/2022/08/01/week-summary-20220726-0801/">http://chihongjian.cn/2022/08/01/week-summary-20220726-0801/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>版权声明:</span>
+                        <span>许可证书 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a></span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E5%91%A8%E8%AE%B0/"># 周记</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">返回</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2022/08/08/week-summary-20220802-0808/">20220802-0808-周总结</a>
+            
+            
+            <a class="next" rel="next" href="/2022/07/25/week-summary-20220719-0725/">20220719-0725-周总结</a>
+            
+        </section>
+        <br>
+            <div class="post-content" id="vcomments"></div> 
+        <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'fuW3YUhpFFC5Y4qcyvU5g4ko-gzGzoHsz',
+            appKey: '6nnduwkR9FLH5lUq7IVLPtsB'
+        })
+        </script>
+
+    </article>
+
+</div>
+
+            
+        </div>
+
+        <footer id="footer" class="footer">
+	
+    <div class="copyright">
+        <span>Copyright © 2021 小健的个人日记•Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+       	<span id="busuanzi_container_site_pv">
+    			 &本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+			</span>
+    </div>
+
+</footer>
+
+
+    </div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

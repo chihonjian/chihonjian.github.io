@@ -12,7 +12,7 @@
 
 
 
-<title>20220809-0815-周总结 | 小健的日记</title>
+<title>20220816-0822-周总结 | 小健的日记</title>
 
 
 
@@ -209,7 +209,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">20220809-0815-周总结</h1>
+            <h1 class="post-title">20220816-0822-周总结</h1>
             
                 <div class="post-meta">
                     
@@ -218,7 +218,7 @@
 
                     
                         <span class="post-time">
-                        日期: <a href="#">2022-08-15&nbsp;&nbsp;21:42:09</a>
+                        日期: <a href="#">2022-08-22&nbsp;&nbsp;21:34:25</a>
                         </span>
                     
                     
@@ -237,24 +237,30 @@
         </header>
 
         <div class="post-content">
-            <h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p>    近来购得一本好书——《阿里巴巴Java开发手册》。本书详细讲解了在开发过程中需要注意的规范与命名。比如if、for、while等常用的循环需要空出一位，这样写会比较宽松。</p>
-<p>    时常看见他人的代码写法，不清楚自己的规范更好还是他人更标准，从这本由大佬总结的书籍可以作为自己程序猿道路上的一个标准，当然在不同团队中可能存在不同的标准，但自己需要明白，书中讲解的规范、守则为什么这么写，这么写的好处是什么。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> () &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>    开发项目中自己常遇到常量作为判断条件，如:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="string">&quot;20&quot;</span>.equal(workType)) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//这里常量作为一个判断类型，判断工种的类型，</span></span><br><span class="line"><span class="comment">//然而手册说明这是一个魔法值，常量而且为数字指向的常量,</span></span><br><span class="line"><span class="comment">//应该新建一个类对象，进行判断</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//多层if或者多个if的话，尽量用简洁去判断</span></span><br></pre></td></tr></table></figure>
-<p>    收住，还有很多自己平时不曾注意到的规范守则，需要多多温故而知新。</p>
-<p>    MES项目终于修修补补完成了大部分，流程慢慢的跑通了。这个项目虽然只是普通的业务逻辑，但也让我受益良多，从中我对java本身的代码理解从片面的业务逻辑深入学习到了mapper映射与微服务的调用关系。</p>
-<h1 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h1><p>    发现一天天的时间过得非常快，上周调休了二天回了趟家里，好久没回去，刚到家还有点生疏的感觉哈哈。家里的饭菜非常可口，比起这边确实太好了。回到家乡去整理了党员档案，老家的乡镇府挺气派的，办理报道的流程真的繁琐。</p>
-<p>    周末的时光显得很无聊，我感觉自己什么都不想干，想摆烂，但现实不允许我摆烂，我也很难让自己可以身处一个适合学习的状态，这需要慢慢调整，感觉自己的自制力真的很差，很差很差。</p>
+            <h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p>    近期买了一本《java核心卷一》学习，准备好好巩固一下java的基础知识，这本书的java讲解非常详尽，比较适合基础薄弱的我学习。学习过程中发现在保留小数点常用到的比如:Bigdecimal这个类就非常好用。学以致用在了MES项目中，能够省略非常多的其他运算。</p>
+<p>    MES项目BUG终于清空，绩效模块的定时任务着实难调，可能是我代码写的不规范，导致看自己的代码也有点吃力，我直接哭死。我需要反思自己的技术能力，感觉飘了，要明白人外有人、天外有天。要多向身边人学习，小伙伴一个个非常努力，自己也不能懈怠。</p>
+<p>    在项目写的过程中，我感受到如果一个项目的代码长时间不去阅读，那么接下来这段代码无论是不是由本人构建，那规范、逻辑、注释都是帮助本人、他人理解的好习惯。项目过程一定要注意在写SQL-Mapper过程中要注意一个mapper的sql语句被其他类或对象引用过多，一定要注意不轻易去更改被过多引用的mapper语句；同时也需要注意一个常用的mapper语句应该放在公共mapper中调用，这样可以保证在更改其中语句过程中会注意到此语句已被他人引用，会多注意免得引起其他模块的BUG问题。</p>
+<p>    业务逻辑中有这么一个问题，比如我需要判断班次时间端。那么我设定：</p>
+<p>A班次: 7:00 - 19:00</p>
+<p>B班次: 19:00 - 7:00</p>
+<p>问题是，随机给定一个时间、判断该时间存在在哪个班次内。咋一听很简单。似乎可以这么写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">随机给定 C : 3:00</span><br><span class="line">那么判断若: 开始时间 &lt; C &lt; 结束时间</span><br></pre></td></tr></table></figure>
+<p>    这个逻辑看上去可以，但实际中，若C代入B班次时间段去判断存在，则：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">19:00 &lt; 3:00 &lt; 7:00</span><br></pre></td></tr></table></figure>
+<p>会发现，三点从直觉判断来看就是在这个时间段，但代码统一这么写，这么写，C明显在B班次中，但逻辑会认为他不在，因为19:00大于3:00。所以当时王哥说从数学逻辑看，若 C在某个区间，就一定不存在着另一个区间。啥意思呢，就是:</p>
+<p>    一天分为24小时，不论你如何区班次，你只要不是00:00——24:00区间，当然这样也没意义，那么必定存在一个它的补集。比如: B班次下 19:00——7:00这个区间，要判断C是否存在这个区间，不一定非要判断在里面，也可以判断是否在B班次的补集区间。因为如果C在B的补集区间中，那它一定不在B区间，若它不在补集区间，那么C一定在B区间的这个逻辑。</p>
+<p>B班次: 19:00 - 7:00</p>
+<p>B补集: 7:00 - 19:00</p>
+<p>这样便可以简单做大小判断了。感叹写增删查改的代码容易让人麻木。其实代码本身可以根据巧妙的逻辑去更简洁的实现功能。若不用这种方式，我便要去做一些更复杂的操作去处理。记录一下，留作纪念。</p>
 <hr>
-<p>    周末浅浅的做个面条吃，从家里带过来的牛肉酱，非常香。一个人独处的时候，很适合看看知乎吃吃面。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1660574620106.png" data-fancybox="group" data-caption="1660574620106.png"><img src="/2022/08/15/week-summary-20220809-0815/1660574620106.png"></a></p>
-<p>     老家的天非常蓝，天气虽炎热但能够接受，偶尔有一阵风吹过让人感到神清气爽。每一次回到老家的思绪与心态都不相同，这应该就是每一个时间段经历的不同，感触都不一样。从儿时到如今，二十年缓缓过去，自己从幼稚到成长，但我畏惧成长，我不想接受磨难，我也想一帆风顺的走过自己的一生，但我的人生才刚刚开始，我知道后面会有更多的苦难与困难，尽管我做好了准备，但事实上每一次的困难我都不想经历。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1660574657588.png" data-fancybox="group" data-caption="1660574657588.png"><img src="/2022/08/15/week-summary-20220809-0815/1660574657588.png"></a>                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1660574669500.png" data-fancybox="group" data-caption="1660574669500.png"><img src="/2022/08/15/week-summary-20220809-0815/1660574669500.png"></a></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1660574685518.png" data-fancybox="group" data-caption="1660574685518.png"><img src="/2022/08/15/week-summary-20220809-0815/1660574685518.png"></a></p>
-<p>    老家乡村的村委办公室，非常气派。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./1660574692583.png" data-fancybox="group" data-caption="1660574692583.png"><img src="/2022/08/15/week-summary-20220809-0815/1660574692583.png"></a></p>
-<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>    每个年龄段对同一个地点的踏足，总是能冒出不同的思绪，或喜或悲，有可能这一时间段你遇到的好坏影响你对地方的看法，但没关系，我总能缓过来。</p>
+<h1 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h1><p>    心态慢慢的发生变化，思考的很多，也想的很多，其实也是胡思乱想。很多时候我总是知道想这么多没用，要多去做，我都懂。做一件事需要点正反馈，或是成就感、自豪感、满足感都可以。在看哔哩哔哩UP主巫山的《网红与资本简史》，整整四个小时的时间，作为门外汉其实不是能听得懂，但他讲的又让人觉得有道理。哈哈，不过脑子的思考他讲的是否有道理，逻辑上确实可以接受他的说法。他们的发展经历一点一滴，或站在风口、或跟着时代的发展拥抱大势都能算得上是豪杰。风口、趋势都是非常抽象的，我非常想把握住，需要更加开阔的眼界、更深厚的知识、更多的社会经验。每一个都不是轻易的、都是一个个真实的人生，性格都是随着环境的经历不同而发生改变。有人说3年5年一个人变化那么大，可能环境是改变一个人最大的能量。</p>
+<p>    身处校园、还未真正的历经社会，都不能算作成长，我希望勉励自己，能够努力。</p>
+<h2 id="说走就走的小叫天"><a href="#说走就走的小叫天" class="headerlink" title="说走就走的小叫天"></a>说走就走的小叫天</h2><p>    来一场说走就走的小叫天，叫起来！</p>
+<p><a href="./1661178417859.png" data-fancybox="group" data-caption="1661178417859.png"><img src="/2022/08/22/week-summary-20220816-0822/1661178417859.png"></a></p>
+<p><a href="./1661178431631.png" data-fancybox="group" data-caption="1661178431631.png"><img src="/2022/08/22/week-summary-20220816-0822/1661178431631.png"></a></p>
+<h2 id="陪老弟去了趟医院"><a href="#陪老弟去了趟医院" class="headerlink" title="陪老弟去了趟医院"></a>陪老弟去了趟医院</h2><p>    等了3个小时，医生5分钟说:多运动、不要久站久坐，就没事的。只能说可以，求了安心，但我弟真的太胖了。</p>
+<p><a href="./1661178449599.png" data-fancybox="group" data-caption="1661178449599.png"><img src="/2022/08/22/week-summary-20220816-0822/1661178449599.png"></a></p>
+<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>&nbsp;&nbsp;继续前进。黑夜给了黑色的眼睛，我却用它寻找光明。</p>
 
         </div>
 
@@ -269,7 +275,7 @@
                 
                     <p class="copyright-item">
                         <span>文章链接:</span>
-                        <span><a href="http://chihongjian.cn/2022/08/15/week-summary-20220809-0815/">http://chihongjian.cn/2022/08/15/week-summary-20220809-0815/</a></span>
+                        <span><a href="http://chihongjian.cn/2022/08/22/week-summary-20220816-0822/">http://chihongjian.cn/2022/08/22/week-summary-20220816-0822/</a></span>
                     </p>
                 
                 
@@ -301,10 +307,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2022/08/22/week-summary-20220816-0822/">20220816-0822-周总结</a>
             
-            
-            <a class="next" rel="next" href="/2022/08/08/week-summary-20220802-0808/">20220802-0808-周总结</a>
+            <a class="next" rel="next" href="/2022/08/15/week-summary-20220809-0815/">20220809-0815-周总结</a>
             
         </section>
         <br>

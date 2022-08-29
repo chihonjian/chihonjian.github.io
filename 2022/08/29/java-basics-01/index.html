@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Hans Jian">
+
+
+
+
+
+<title>20220815-0829-技术学习-java-01 | 小健的日记</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/js/love.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.js"></script>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.css">
+                
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">小健的个人小窝</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E5%91%A8%E8%AE%B0">周记</a>
+                
+                    <a class="menu-item" href="/categirues/%E7%AC%94%E8%BF%B9">笔迹项目</a>
+                
+                    <a class="menu-item" href="/categories/%E5%9F%BA%E7%A1%80">学习基础</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">小健的个人小窝</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; 菜单</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E5%91%A8%E8%AE%B0">周记</a>
+                
+                    <a class="menu-item" href="/categirues/%E7%AC%94%E8%BF%B9">笔迹项目</a>
+                
+                    <a class="menu-item" href="/categories/%E5%9F%BA%E7%A1%80">学习基础</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开目录</a>
+        <a onclick="go_top()">回到顶部</a>
+        <a onclick="go_bottom()">转去最低</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "收起目录"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "展开目录"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">20220815-0829-技术学习-java-01</h1>
+            
+                <div class="post-meta">
+                    
+                        作者: <a itemprop="author" rel="author" href="/">Hans Jian</a>
+                    
+
+                    
+                        <span class="post-time">
+                        日期: <a href="#">2022-08-29&nbsp;&nbsp;18:19:01</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    分类:
+                            
+                                <a href="/categories/%E5%91%A8%E8%AE%B0/">周记</a>
+                            
+                        </span>
+                    
+                        <span id="busuanzi_container_page_pv">
+                        &nbsp;本文总阅读量:<span style="color:#2d96bd" id="busuanzi_value_page_pv"></span><span style="color:#2d96bd">次</span>
+                        </span>
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="Java8种基础类型"><a href="#Java8种基础类型" class="headerlink" title="Java8种基础类型"></a>Java8种基础类型</h1><p>整型包括: int、short、long、byte</p>
+<p>&nbsp;&nbsp;其中[int] 占位 4个字节，一个字节 = 8位，则在java虚拟机中共占用32位，则取值范围为 -2的31次方~2的31次方 - 1。</p>
+<p>&nbsp;&nbsp;short占位2个字节，取值范围为 ±2的15次方；long占8个字节，取值范围:±2的63次方。正数范围内需-1</p>
+<p>&nbsp;&nbsp;短整型short与byte适用于底层文件处理，或存储很宝贵的大数组使用。</p>
+<p>浮点型包括：float、double</p>
+<p>&nbsp;&nbsp;浮点型[float]占用4个字节，32位的占用中可细分为：1bit的符号位、指数位8bit，剩余的尾数位为:23bit。最高为 1负0正。特别注意是的，当 1/0时表示无穷大，0/1时表示NaN。这需要在计算数值时候做出适当判断，以免产生NaN等。</p>
+<p>&nbsp;&nbsp;双精度(Double)占用字节为8，它比float数值精准度为2倍。所以一般情况下，选择double类型作为小数运算。</p>
+<p>字符类型：char</p>
+<p>&nbsp;&nbsp;在java中，char可表示成 ‘A’编码值为65的字符常量，而”A”则表示成一个字符串。在过往的时间里，出现过许多编码形式，如：ISO8859-1、ASCII等编码形式，而如今常用的则为UniCode，如utf8等。</p>
+<p>布尔类型: boolean</p>
+<p>&nbsp;&nbsp;java中数值的1与0不能表达真假状态，如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (x == <span class="number">0</span>) &#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;此语句下若x=0，可正常进入，java不会把x最终的结果0看做成布尔类型。</p>
+<h1 id="大数"><a href="#大数" class="headerlink" title="大数"></a>大数</h1><p>&nbsp;&nbsp;大数是用于复杂类型的计算，相比较于数值的进行，不论是整型、双精度都有一个精度范围，而在某一些的场景下需要运行大数，如1225245343233356666664330000000084865834828345863这里的数值。本身的数值超出了所有类型的范围，则就需要把数值转化成字符型。</p>
+<p>&nbsp;&nbsp;字符型的优势在于，不论你的数值有多大，其实际表达的意思为占用空间的大小，所以理论上大数是没有限制的。在java中提供了两种常用的大数计算类:BigDecimal、BigInteger。</p>
+<p>&nbsp;&nbsp;BigDecimal:此类可以提供相对应的不同的浮点数运算。常用的方法有:add、subtract、multiply、divide(除)。divide有两种方式入参，其方法表示形式为:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">BigDecimal <span class="title">divide</span><span class="params">(Bigdecimal other)</span></span>;</span><br><span class="line"><span class="function">BigDecimal <span class="title">divide</span><span class="params">(Bigdecimal other,RoundingMode mode)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;其RoundingMode中的RoundingMode.HALF_UP方法可以自动进行进位，其BigDecimal提供的setScale()方法提供对大数的保留小数位数，入参数方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BigDecimal bigNumber = <span class="keyword">new</span> BigDecimal(<span class="string">&quot;100000.3453453453&quot;</span>)</span><br><span class="line">bigNumber.setScale(<span class="number">2</span>,ROUNDING_HALF_UP)</span><br></pre></td></tr></table></figure>
+<h1 id="静态变量-static-与final"><a href="#静态变量-static-与final" class="headerlink" title="静态变量(static)与final"></a>静态变量(static)与final</h1><p>&nbsp;&nbsp;final修饰符主要用于表示修饰一个变量不可改变，如: name变量被修饰 final name = “jianfreespace”后。则该初始化后续不可被重新赋值。</p>
+<p>&nbsp;&nbsp;static静态字段用于修饰在成员方式或者变量上，若修饰在成员变量中，则在一个类中，作为一个静态变量存在，不论任意对象进行实例化，所有类的实例会共享同一个静态字段。静态字段是属于类，不属于任意对象。</p>
+<p>&nbsp;&nbsp;一般情况下，静态变量使用的不多，因为会造成混乱与不变，但静态常量确常常出现，用于 public static final进行修饰。</p>
+<h1 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h1><p>&nbsp;&nbsp;instanceof用于判断是否元素或对象属于这个类型或是其父类。在类型转化时可以使用其判断</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (object <span class="keyword">instanceof</span> object) &#123;</span><br><span class="line">	<span class="comment">//若真进入</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h1><p>&nbsp;&nbsp;equals方式用于比较值或对象，值得注意的是，若两个对象 A与B，若A.equals(B)为真，则相对应的hashcode一定相等，若重写了equals方法则必须重写hashcode方法，因为若不重写hashcode方法，其默认取Object中对象存储地址得出散列码。</p>
+<p>&nbsp;&nbsp;概念:两个相等的对象一定有相同的hashcode。</p>
+<h1 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h1><p>&nbsp;&nbsp;toString方法默认由Object方法。返回一个对象值的字符串。一般来说，自定义子类时需要重写toString方法可以更直观的表现数据的呈现形式与方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">People</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">        String name;</span><br><span class="line">        <span class="keyword">int</span> age;</span><br><span class="line">        People(String name,<span class="keyword">int</span> age)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> getClass().getName()</span><br><span class="line">                    + <span class="string">&quot;[name=&quot;</span> + name</span><br><span class="line">                    + <span class="string">&quot;,age=&quot;</span> + age</span><br><span class="line">                    +<span class="string">&quot;]&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="自动装箱与自动拆箱"><a href="#自动装箱与自动拆箱" class="headerlink" title="自动装箱与自动拆箱"></a>自动装箱与自动拆箱</h1><p>&nbsp;&nbsp;自动装箱=&gt;将基础类型转化为包装类型。会默认自行转化，如存入数组为Integer时，你写入list.add(3)等同于=&gt;list.add(Integer.valueOf(3));</p>
+<p>&nbsp;&nbsp;自动拆箱=&gt;将包装类型转化成基础类型。会默认自行转化，获取数组的值时，int item = list.get(i) =&gt; int item = list.get(i).intValue();</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;;</span><br><span class="line">list.add(<span class="number">3</span>); <span class="comment">// =&gt; list.add(Integer.valueOf(3))</span></span><br><span class="line"><span class="keyword">int</span> item = list.get(i); =&gt; list.get(item).intValue()</span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;包装类型的比较一般情况下不能使用 ==，因为 == 运算符检测的是对象是否具有相同的存储位置。不过通常下不同对象的存储地址都是不同的。若需要判断两个包装类型的值是否相同，则需要使用equals来判断。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Integer a = <span class="number">1000</span>;</span><br><span class="line">        Integer b = <span class="number">1000</span>;</span><br><span class="line">        System.out.println( a == b);<span class="comment">// false</span></span><br><span class="line">	System.out.println(a.equals(b)); <span class="comment">// true</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h1><p>&nbsp;&nbsp;枚举类是特殊类型，它一般用来表示一组常量，如月份、星期、四季等。枚举类的基本用法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> com.jianfreespace;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> jianfreespace</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">Size</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    SMALL(<span class="string">&quot;S&quot;</span>),MEDIUM(<span class="string">&quot;M&quot;</span>),LARGE(<span class="string">&quot;L&quot;</span>),EXTRA_LARGE(<span class="string">&quot;XL&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String abbreviation;</span><br><span class="line"></span><br><span class="line">    Size(String abbreviation) &#123;</span><br><span class="line">        <span class="keyword">this</span>.abbreviation = abbreviation;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getAbbreviation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> abbreviation;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">for</span> (Size size : Size.values()) &#123;</span><br><span class="line">           System.out.println(size);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**结果:</span></span><br><span class="line"><span class="comment">SMALL</span></span><br><span class="line"><span class="comment">MEDIUM</span></span><br><span class="line"><span class="comment">LARGE</span></span><br><span class="line"><span class="comment">EXTRA_LARGE</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="Java反射类"><a href="#Java反射类" class="headerlink" title="Java反射类"></a>Java反射类</h1><p>&nbsp;&nbsp;java反射虽然在业务场景下使用较少，但在框架与开发基础性工具上常常用到。反射可以用来:在运行时分析类的能力、在运行时检查对象等。Class类保存基本类的一些信息，比如例子中，People.class是类取class，people.class取类对象，其本质的结果class都是一样的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    People people = <span class="keyword">new</span> People(<span class="string">&quot;Jianfreespace&quot;</span>,<span class="number">23</span>);</span><br><span class="line">    System.out.println(People.class);</span><br><span class="line">    Class cl = people.getClass();</span><br><span class="line">    System.out.println(cl);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">结果:</span></span><br><span class="line"><span class="comment">class com.jianfreespace.StartMain$People</span></span><br><span class="line"><span class="comment">class com.jianfreespace.StartMain$People</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;反射类中还可以使用Class.forName()用来获取一个类对象。并可以构建初始化对象。如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">People p = (People)Class.forName(Perple.class)</span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>文章作者:</span>
+                        <span>Hans Jian</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>文章链接:</span>
+                        <span><a href="http://chihongjian.cn/2022/08/29/java-basics-01/">http://chihongjian.cn/2022/08/29/java-basics-01/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>版权声明:</span>
+                        <span>许可证书 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a></span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E5%91%A8%E8%AE%B0/"># 周记</a>
+                    
+                        <a href="/tags/java/"># java</a>
+                    
+                        <a href="/tags/%E5%9F%BA%E7%A1%80/"># 基础</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">返回</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2022/08/29/week-summary-20220823-0829/">20220823-0829-周总结</a>
+            
+            
+            <a class="next" rel="next" href="/2022/08/22/week-summary-20220816-0822/">20220816-0822-周总结</a>
+            
+        </section>
+        <br>
+            <div class="post-content" id="vcomments"></div> 
+        <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'fuW3YUhpFFC5Y4qcyvU5g4ko-gzGzoHsz',
+            appKey: '6nnduwkR9FLH5lUq7IVLPtsB'
+        })
+        </script>
+
+    </article>
+
+</div>
+
+            
+        </div>
+
+        <footer id="footer" class="footer">
+	
+    <div class="copyright">
+        <span>Copyright © 2021 小健的个人日记•Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+       	<span id="busuanzi_container_site_pv">
+    			 &本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+			</span>
+    </div>
+
+</footer>
+
+
+    </div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

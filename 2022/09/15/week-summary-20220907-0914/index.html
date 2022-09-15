@@ -12,7 +12,7 @@
 
 
 
-<title>python打包代码成whl——离线安装依赖相关总结 | 小健的日记</title>
+<title>20220907-0914-周总结 | 小健的日记</title>
 
 
 
@@ -209,7 +209,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">python打包代码成whl——离线安装依赖相关总结</h1>
+            <h1 class="post-title">20220907-0914-周总结</h1>
             
                 <div class="post-meta">
                     
@@ -218,14 +218,14 @@
 
                     
                         <span class="post-time">
-                        日期: <a href="#">2022-09-14&nbsp;&nbsp;9:38:10</a>
+                        日期: <a href="#">2022-09-15&nbsp;&nbsp;10:31:49</a>
                         </span>
                     
                     
                         <span class="post-category">
                     分类:
                             
-                                <a href="/categories/%E9%BC%93%E6%8D%A3/">鼓捣</a>
+                                <a href="/categories/%E5%91%A8%E8%AE%B0/">周记</a>
                             
                         </span>
                     
@@ -237,19 +237,14 @@
         </header>
 
         <div class="post-content">
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&nbsp;&nbsp;python语言在研发一些小场景的业务逻辑下，存在在内网下使用代码的情况，而内网工控机又不能够使用exe等可执行文件，那么python使用pyinstaller的打包方法就失效了，你必须能让python的代码能够执行，所以我搜索到了打包成库以及离线安装依赖的方法，记录一下。</p>
-<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>&nbsp;&nbsp;内网环境下必须具备python环境与pip环境。</p>
-<p>&nbsp;&nbsp;第一步，需要先生存requirements.txt文件，生成的方式比较简单，在根目录执行一下命令</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install pipreqs</span><br><span class="line">pipreqs ./ --force --encoding=<span class="string">&quot;utf8&quot;</span></span><br></pre></td></tr></table></figure>
-<p>&nbsp;&nbsp;第二步需要导出所需要的依赖包，-d后表达的是安装包存储的路径，命令如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip download -r requirement.txt -d .&#x2F;pip_packages</span><br></pre></td></tr></table></figure>
-<p>&nbsp;&nbsp;第三步则需要构建封装成库的必要文件，首先需要新建一个包类，这是你库的名字，比如: jian-packages,那么你库名就是这个，然后在包中新建一个setup.py,代码参考如下:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> setuptools</span><br><span class="line"><span class="keyword">from</span> setuptools <span class="keyword">import</span> setup</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name=<span class="string">&#x27;jian-packages&#x27;</span>,  <span class="comment"># 包名</span></span><br><span class="line">    version=<span class="string">&#x27;1.0&#x27;</span>,  <span class="comment"># 版本</span></span><br><span class="line">    description=<span class="string">&#x27;&#x27;</span>,  <span class="comment"># 描述</span></span><br><span class="line">    author=<span class="string">&#x27;Jianfreespace&#x27;</span>,  <span class="comment"># 作者</span></span><br><span class="line">    author_email=<span class="string">&#x27;underpig@163.com&#x27;</span>,  <span class="comment"># 作者邮箱</span></span><br><span class="line">    packages=setuptools.find_packages()  <span class="comment"># 需要封装的所有包</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>&nbsp;&nbsp;然后就可以在包里面把你所需要的模块全部拉取进来，封装成一个包，值得注意的是，你写的代码所依赖的第三方文件打包后是不会把第三方依赖打包进去的，所以若包代码中存在调用第三方模块的情况，则需要使用上述方法导出依赖，然后基于ImportError的异常类去判断是否存在相关依赖，若不存在则安装依赖包，代码参考:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">from</span> Crypto <span class="keyword">import</span> Random</span><br><span class="line">    <span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line">    <span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> PKCS1_v1_5 <span class="keyword">as</span> Cipher_pkcs1_v1_5</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span> ImportError <span class="keyword">as</span> error:</span><br><span class="line">    <span class="keyword">from</span> os <span class="keyword">import</span> system,getcwd</span><br><span class="line">    requireDirPath = <span class="string">&quot;pip install --no-index --find-links=&#123;&#125;\pip_packages -r &#123;&#125;\\requirements.txt&quot;</span>.<span class="built_in">format</span>(getcwd(),getcwd())</span><br><span class="line">    system(requireDirPath)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --no-index --find-links=d:\packages -r requirements.txt</span><br></pre></td></tr></table></figure>
-<p>&nbsp;&nbsp;然后就可以根据此异常去判断自动安装依赖了，达到在内网环境下直接调用封装的代码并不需要联网安装依赖。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&nbsp;&nbsp;唯一甲方的不断催促才能让我想一些奇奇怪怪的方式，难顶。</p>
+            <h1 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h1><p>&nbsp;&nbsp;平平淡淡的生活总是过得飞快，工作上近期研究的C++有了回响，研究出了七七八八，还差一点就可以收尾了，MES系统的缝缝补补但感觉有点像风中楼阁，只要有一个重大问题，系统就会崩溃。</p>
+<p>&nbsp;&nbsp;中秋佳节的到达，迎来了我工作后的第一个的中秋，公司整了一个博饼的活动，然而我只博到了2包纸巾，属实惨了一点。过节回家是难得休息的时间，家里煮了非常丰盛的饭菜，水煮鱼、滑肉、手工鱼丸等。还是钟爱家里的鱼丸，确实非常好吃，不腻。中秋当天晚，一家人去外散步看月亮，走了新开通的大桥，连通南北。一家人团聚时候随着年龄增大而减少，这是我能感受到的，家里人都老了。想让家里人一起拍个全家福，一年一拍。</p>
+<p>&nbsp;&nbsp;放假的来临，辉、灯兄弟也有回来，晚上我们就小聚聊天了一下，大家都有各自的工作，一起的谈天说地慢慢的变成了生活的碎语。晚上我还下载了一个金铲铲跟他们一起玩，打发一下假期时光，但感觉没有以前对游戏那么感兴趣，大概是一心只想搞钱了吧哈哈。</p>
+<p>&nbsp;&nbsp;党员还未转出，材料非常麻烦，我每次打负责人电话总是不通，我真是见了鬼了都。</p>
+<p>&nbsp;&nbsp;最近夜晚睡梦前时，总会胡思乱想很多，想自己的大学生活、想自己的每一个行为，大概是目前的生活我自己感到不满意吧。下班回家的时候最因近接了一点外单，想着换一部手机，近期都在慢慢悠悠的写。太无聊了。笔迹项目已经快一个月没有动工了，我对自己的坚持感觉很脆弱。想存钱组一部电脑、想买一部新手机、还多想的，先慢慢存钱，搞钱先。</p>
+<h2 id="一杯柠檬汽水"><a href="#一杯柠檬汽水" class="headerlink" title="一杯柠檬汽水"></a>一杯柠檬汽水</h2><p><a href="./1663211944425.png" data-fancybox="group" data-caption="1663211944425.png"><img src="/2022/09/15/week-summary-20220907-0914/1663211944425.png"></a></p>
+<h2 id="四季芳洲"><a href="#四季芳洲" class="headerlink" title="四季芳洲"></a>四季芳洲</h2><p><a href="./1663211965905.png" data-fancybox="group" data-caption="1663211965905.png"><img src="/2022/09/15/week-summary-20220907-0914/1663211965905.png"></a></p>
+<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>&nbsp;&nbsp;慢慢记录生活。</p>
 
         </div>
 
@@ -264,7 +259,7 @@
                 
                     <p class="copyright-item">
                         <span>文章链接:</span>
-                        <span><a href="http://chihongjian.cn/2022/09/14/python_whl_packages/">http://chihongjian.cn/2022/09/14/python_whl_packages/</a></span>
+                        <span><a href="http://chihongjian.cn/2022/09/15/week-summary-20220907-0914/">http://chihongjian.cn/2022/09/15/week-summary-20220907-0914/</a></span>
                     </p>
                 
                 
@@ -283,9 +278,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/python/"># python</a>
-                    
-                        <a href="/tags/packages/"># packages</a>
+                        <a href="/tags/%E5%91%A8%E8%AE%B0/"># 周记</a>
                     
                         
                 </span>
@@ -298,10 +291,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2022/09/15/week-summary-20220907-0914/">20220907-0914-周总结</a>
             
-            
-            <a class="next" rel="next" href="/2022/09/07/week-summary-20220830-0906/">20220830-0906-周总结</a>
+            <a class="next" rel="next" href="/2022/09/14/python_whl_packages/">python打包代码成whl——离线安装依赖相关总结</a>
             
         </section>
         <br>

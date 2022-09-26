@@ -55,6 +55,49 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    //禁止F12
+        function fuckyou() {
+            window.close(); //关闭当前窗口(防抽)
+            window.location.replace("www.chihongjian.cn"); //将当前窗口跳转置空白页
+        }   
+        function click(e) {
+            if (document.all) {
+                if (event.button == 2 || event.button == 3) {
+                    alert("你好陌生人,请不要试图越过权限文章,您的IP已自动保存至服务端.谢谢！");
+                    oncontextmenu = 'return false';
+                }
+            }
+            if (document.layers) {
+                if (e.which == 3) {
+                    oncontextmenu = 'return false';
+                }
+            }
+        }
+        if (document.layers) {
+            fuckyou();
+            document.captureEvents(Event.MOUSEDOWN);
+        }
+        document.onmousedown = click;
+        document.oncontextmenu = new Function("return false;")
+        document.onkeydown = document.onkeyup = document.onkeypress = function () {
+            if (window.event.keyCode == 123) {
+                fuckyou();
+                window.event.returnValue = false;
+                return (false);
+            }
+        }
+        //禁用CTRL+S
+        $(document).keydown(function (e) {
+            if (e.ctrlKey == true && e.keyCode == 83) {
+                console.log('ctrl+s');
+                return false; // 截取返回false就不会保存网页了
+            }
+        });
+</script>
+
+
+
 <noscript>
     <div style="text-align: center;margin-top: 10px;font-size: 30px;">你好陌生人,请不要试图越过权限文章，谢谢！</div>
 </noscript>

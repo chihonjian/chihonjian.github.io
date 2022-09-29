@@ -381,8 +381,10 @@
 
                                         
                                             const password = window.prompt('请输入密码');
+
+                                            let salt = "DFTGHfgjFDTYHJfyhjfhjFGdrsfhjyFGJchihonjian";
                                             if (password) {
-                                                if (md5(password) === 'dc25ee6128eef504291faa40b9af0c61') {
+                                                if (md5(password + salt) === '6c9104a0600dcbe8efd90273935433f8') {
                                                     
                                                 } else {
                                                     window.location = "https://www.chihongjian.cn";

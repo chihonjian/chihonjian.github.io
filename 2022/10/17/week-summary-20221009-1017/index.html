@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Hans Jian">
+
+
+
+
+
+<title>20221009-1017-周及月度总结 | 小健的日记</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/js/love.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.js"></script>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.css">
+                
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+<script>
+
+    //禁止F12
+        function fuckyou() {
+            window.close(); //关闭当前窗口(防抽)
+            window.location.replace("https://www.chihongjian.cn"); //将当前窗口跳转置空白页
+        }   
+        function click(e) {
+            if (document.all) {
+                if (event.button == 2 || event.button == 3) {
+                    alert("你好陌生人,请不要试图越过权限文章,您的IP已自动保存至服务端.谢谢！");
+                    oncontextmenu = 'return false';
+                }
+            }
+            if (document.layers) {
+                if (e.which == 3) {
+                    oncontextmenu = 'return false';
+                }
+            }
+        }
+        if (document.layers) {
+            fuckyou();
+            document.captureEvents(Event.MOUSEDOWN);
+        }
+        document.onmousedown = click;
+        document.oncontextmenu = new Function("return false;")
+        document.onkeydown = document.onkeyup = document.onkeypress = function () {
+            if (window.event.keyCode == 123) {
+                fuckyou();
+                window.event.returnValue = false;
+                return (false);
+            }
+        }
+        //禁用CTRL+S
+        $(document).keydown(function (e) {
+            if (e.ctrlKey == true && e.keyCode == 83) {
+                console.log('ctrl+s');
+                return false; // 截取返回false就不会保存网页了
+            }
+        });
+
+
+        //禁用控制台
+        setInterval(function () {
+            check()
+        }, 4000);
+        var check = function () {
+            function doCheck(a) {
+                if (("" + a / a)["length"] !== 1 || a % 20 === 0) {
+                    (function () { }
+                    ["constructor"]("debugger")())
+                } else {
+                    (function () { }
+                    ["constructor"]("debugger")())
+                }
+                doCheck(++a)
+            }
+            try {
+                doCheck(0)
+            } catch (err) { }
+        };
+        check();
+</script>
+
+
+
+<noscript>
+    <div style="text-align: center;margin-top: 10px;font-size: 30px;">你好陌生人,请不要试图越过权限文章，谢谢！</div>
+</noscript>
+
+
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">小健的个人小窝</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E5%91%A8%E8%AE%B0">周记</a>
+                
+                    <a class="menu-item" href="/categirues/%E7%AC%94%E8%BF%B9">笔迹项目</a>
+                
+                    <a class="menu-item" href="/categories/%E5%9F%BA%E7%A1%80">学习基础</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">小健的个人小窝</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; 菜单</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类笔记</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/categories/%E5%91%A8%E8%AE%B0">周记</a>
+                
+                    <a class="menu-item" href="/categirues/%E7%AC%94%E8%BF%B9">笔迹项目</a>
+                
+                    <a class="menu-item" href="/categories/%E5%9F%BA%E7%A1%80">学习基础</a>
+                
+                    <a class="menu-item" href="/categories/%E9%BC%93%E6%8D%A3">鼓捣</a>
+                
+                    <a class="menu-item" href="/categories/%E5%8E%9F%E5%88%9B">原创</a>
+                
+                    <a class="menu-item" href="/friend">友联</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+
+<script>
+    //禁止F12
+    function fuckyou() {
+        window.close(); //关闭当前窗口(防抽)
+        window.location.replace("https://www.chihongjian.cn"); //将当前窗口跳转置空白页
+    }
+    function click(e) {
+        if (document.all) {
+            if (event.button == 2 || event.button == 3) {
+                alert("你好陌生人,请不要试图越过权限文章,您的IP已自动保存至服务端.谢谢！");
+                oncontextmenu = 'return false';
+            }
+        }
+        if (document.layers) {
+            if (e.which == 3) {
+                oncontextmenu = 'return false';
+            }
+        }
+    }
+    if (document.layers) {
+        fuckyou();
+        document.captureEvents(Event.MOUSEDOWN);
+    }
+    document.onmousedown = click;
+    document.oncontextmenu = new Function("return false;")
+    document.onkeydown = document.onkeyup = document.onkeypress = function () {
+        if (window.event.keyCode == 123) {
+            fuckyou();
+            window.event.returnValue = false;
+            return (false);
+        }
+    }
+    //禁用CTRL+S
+    $(document).keydown(function (e) {
+        if (e.ctrlKey == true && e.keyCode == 83) {
+            console.log('ctrl+s');
+            return false; // 截取返回false就不会保存网页了
+        }
+    });
+
+    setInterval(function () {
+            check()
+        }, 4000);
+        var check = function () {
+            function doCheck(a) {
+                if (("" + a / a)["length"] !== 1 || a % 20 === 0) {
+                    (function () { }
+                    ["constructor"]("debugger")())
+                } else {
+                    (function () { }
+                    ["constructor"]("debugger")())
+                }
+                doCheck(++a)
+            }
+            try {
+                doCheck(0)
+            } catch (err) { }
+        };
+        check();
+</script>
+
+
+
+<noscript>
+    <div style="text-align: center;margin-top: 10px;font-size: 30px;">你好陌生人,请不要试图越过权限文章，谢谢！</div>
+</noscript>
+        <div class="main">
+            
+<div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开目录</a>
+        <a onclick="go_top()">回到顶部</a>
+        <a onclick="go_bottom()">转去最低</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "收起目录"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "展开目录"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">20221009-1017-周及月度总结</h1>
+            
+                <div class="post-meta">
+                    
+                        作者: <a itemprop="author" rel="author" href="/">Hans Jian</a>
+                    
+
+                    
+                        <span class="post-time">
+                        日期: <a href="#">2022-10-17&nbsp;&nbsp;15:14:16</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    分类:
+                            
+                                <a href="/categories/%E5%91%A8%E8%AE%B0/">周记</a>
+                                 
+                                    <noscript >
+                                        <style>
+                                            .main {
+                                                display: none
+                                            }
+                                        </style>
+                                    </noscript>
+                                    <script>
+
+                                        !function () { "use strict"; var ERROR = "input is invalid type", WINDOW = "object" == typeof window, root = WINDOW ? window : {}; root.JS_MD5_NO_WINDOW && (WINDOW = !1); var WEB_WORKER = !WINDOW && "object" == typeof self, NODE_JS = !root.JS_MD5_NO_NODE_JS && "object" == typeof process && process.versions && process.versions.node; NODE_JS ? root = global : WEB_WORKER && (root = self); var COMMON_JS = !root.JS_MD5_NO_COMMON_JS && "object" == typeof module && module.exports, AMD = "function" == typeof define && define.amd, ARRAY_BUFFER = !root.JS_MD5_NO_ARRAY_BUFFER && "undefined" != typeof ArrayBuffer, HEX_CHARS = "0123456789abcdef".split(""), EXTRA = [128, 32768, 8388608, -2147483648], SHIFT = [0, 8, 16, 24], OUTPUT_TYPES = ["hex", "array", "digest", "buffer", "arrayBuffer", "base64"], BASE64_ENCODE_CHAR = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".split(""), blocks = [], buffer8; if (ARRAY_BUFFER) { var buffer = new ArrayBuffer(68); buffer8 = new Uint8Array(buffer), blocks = new Uint32Array(buffer) } !root.JS_MD5_NO_NODE_JS && Array.isArray || (Array.isArray = function (t) { return "[object Array]" === Object.prototype.toString.call(t) }), !ARRAY_BUFFER || !root.JS_MD5_NO_ARRAY_BUFFER_IS_VIEW && ArrayBuffer.isView || (ArrayBuffer.isView = function (t) { return "object" == typeof t && t.buffer && t.buffer.constructor === ArrayBuffer }); var createOutputMethod = function (r) { return function (t) { return new Md5(!0).update(t)[r]() } }, createMethod = function () { var r = createOutputMethod("hex"); NODE_JS && (r = nodeWrap(r)), r.create = function () { return new Md5 }, r.update = function (t) { return r.create().update(t) }; for (var t = 0; t < OUTPUT_TYPES.length; ++t) { var e = OUTPUT_TYPES[t]; r[e] = createOutputMethod(e) } return r }, nodeWrap = function (method) { var crypto = eval("require('crypto')"), Buffer = eval("require('buffer').Buffer"), nodeMethod = function (t) { if ("string" == typeof t) return crypto.createHash("md5").update(t, "utf8").digest("hex"); if (null == t) throw ERROR; return t.constructor === ArrayBuffer && (t = new Uint8Array(t)), Array.isArray(t) || ArrayBuffer.isView(t) || t.constructor === Buffer ? crypto.createHash("md5").update(new Buffer(t)).digest("hex") : method(t) }; return nodeMethod }; function Md5(t) { if (t) blocks[0] = blocks[16] = blocks[1] = blocks[2] = blocks[3] = blocks[4] = blocks[5] = blocks[6] = blocks[7] = blocks[8] = blocks[9] = blocks[10] = blocks[11] = blocks[12] = blocks[13] = blocks[14] = blocks[15] = 0, this.blocks = blocks, this.buffer8 = buffer8; else if (ARRAY_BUFFER) { var r = new ArrayBuffer(68); this.buffer8 = new Uint8Array(r), this.blocks = new Uint32Array(r) } else this.blocks = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; this.h0 = this.h1 = this.h2 = this.h3 = this.start = this.bytes = this.hBytes = 0, this.finalized = this.hashed = !1, this.first = !0 } Md5.prototype.update = function (t) { if (!this.finalized) { var r, e = typeof t; if ("string" !== e) { if ("object" !== e) throw ERROR; if (null === t) throw ERROR; if (ARRAY_BUFFER && t.constructor === ArrayBuffer) t = new Uint8Array(t); else if (!(Array.isArray(t) || ARRAY_BUFFER && ArrayBuffer.isView(t))) throw ERROR; r = !0 } for (var s, i, o = 0, h = t.length, f = this.blocks, a = this.buffer8; o < h;) { if (this.hashed && (this.hashed = !1, f[0] = f[16], f[16] = f[1] = f[2] = f[3] = f[4] = f[5] = f[6] = f[7] = f[8] = f[9] = f[10] = f[11] = f[12] = f[13] = f[14] = f[15] = 0), r) if (ARRAY_BUFFER) for (i = this.start; o < h && i < 64; ++o)a[i++] = t[o]; else for (i = this.start; o < h && i < 64; ++o)f[i >> 2] |= t[o] << SHIFT[3 & i++]; else if (ARRAY_BUFFER) for (i = this.start; o < h && i < 64; ++o)(s = t.charCodeAt(o)) < 128 ? a[i++] = s : (s < 2048 ? a[i++] = 192 | s >> 6 : (s < 55296 || 57344 <= s ? a[i++] = 224 | s >> 12 : (s = 65536 + ((1023 & s) << 10 | 1023 & t.charCodeAt(++o)), a[i++] = 240 | s >> 18, a[i++] = 128 | s >> 12 & 63), a[i++] = 128 | s >> 6 & 63), a[i++] = 128 | 63 & s); else for (i = this.start; o < h && i < 64; ++o)(s = t.charCodeAt(o)) < 128 ? f[i >> 2] |= s << SHIFT[3 & i++] : (s < 2048 ? f[i >> 2] |= (192 | s >> 6) << SHIFT[3 & i++] : (s < 55296 || 57344 <= s ? f[i >> 2] |= (224 | s >> 12) << SHIFT[3 & i++] : (s = 65536 + ((1023 & s) << 10 | 1023 & t.charCodeAt(++o)), f[i >> 2] |= (240 | s >> 18) << SHIFT[3 & i++], f[i >> 2] |= (128 | s >> 12 & 63) << SHIFT[3 & i++]), f[i >> 2] |= (128 | s >> 6 & 63) << SHIFT[3 & i++]), f[i >> 2] |= (128 | 63 & s) << SHIFT[3 & i++]); this.lastByteIndex = i, this.bytes += i - this.start, 64 <= i ? (this.start = i - 64, this.hash(), this.hashed = !0) : this.start = i } return 4294967295 < this.bytes && (this.hBytes += this.bytes / 4294967296 << 0, this.bytes = this.bytes % 4294967296), this } }, Md5.prototype.finalize = function () { if (!this.finalized) { this.finalized = !0; var t = this.blocks, r = this.lastByteIndex; t[r >> 2] |= EXTRA[3 & r], 56 <= r && (this.hashed || this.hash(), t[0] = t[16], t[16] = t[1] = t[2] = t[3] = t[4] = t[5] = t[6] = t[7] = t[8] = t[9] = t[10] = t[11] = t[12] = t[13] = t[14] = t[15] = 0), t[14] = this.bytes << 3, t[15] = this.hBytes << 3 | this.bytes >>> 29, this.hash() } }, Md5.prototype.hash = function () { var t, r, e, s, i, o, h = this.blocks; this.first ? r = ((r = ((t = ((t = h[0] - 680876937) << 7 | t >>> 25) - 271733879 << 0) ^ (e = ((e = (-271733879 ^ (s = ((s = (-1732584194 ^ 2004318071 & t) + h[1] - 117830708) << 12 | s >>> 20) + t << 0) & (-271733879 ^ t)) + h[2] - 1126478375) << 17 | e >>> 15) + s << 0) & (s ^ t)) + h[3] - 1316259209) << 22 | r >>> 10) + e << 0 : (t = this.h0, r = this.h1, e = this.h2, r = ((r += ((t = ((t += ((s = this.h3) ^ r & (e ^ s)) + h[0] - 680876936) << 7 | t >>> 25) + r << 0) ^ (e = ((e += (r ^ (s = ((s += (e ^ t & (r ^ e)) + h[1] - 389564586) << 12 | s >>> 20) + t << 0) & (t ^ r)) + h[2] + 606105819) << 17 | e >>> 15) + s << 0) & (s ^ t)) + h[3] - 1044525330) << 22 | r >>> 10) + e << 0), r = ((r += ((t = ((t += (s ^ r & (e ^ s)) + h[4] - 176418897) << 7 | t >>> 25) + r << 0) ^ (e = ((e += (r ^ (s = ((s += (e ^ t & (r ^ e)) + h[5] + 1200080426) << 12 | s >>> 20) + t << 0) & (t ^ r)) + h[6] - 1473231341) << 17 | e >>> 15) + s << 0) & (s ^ t)) + h[7] - 45705983) << 22 | r >>> 10) + e << 0, r = ((r += ((t = ((t += (s ^ r & (e ^ s)) + h[8] + 1770035416) << 7 | t >>> 25) + r << 0) ^ (e = ((e += (r ^ (s = ((s += (e ^ t & (r ^ e)) + h[9] - 1958414417) << 12 | s >>> 20) + t << 0) & (t ^ r)) + h[10] - 42063) << 17 | e >>> 15) + s << 0) & (s ^ t)) + h[11] - 1990404162) << 22 | r >>> 10) + e << 0, r = ((r += ((t = ((t += (s ^ r & (e ^ s)) + h[12] + 1804603682) << 7 | t >>> 25) + r << 0) ^ (e = ((e += (r ^ (s = ((s += (e ^ t & (r ^ e)) + h[13] - 40341101) << 12 | s >>> 20) + t << 0) & (t ^ r)) + h[14] - 1502002290) << 17 | e >>> 15) + s << 0) & (s ^ t)) + h[15] + 1236535329) << 22 | r >>> 10) + e << 0, r = ((r += ((s = ((s += (r ^ e & ((t = ((t += (e ^ s & (r ^ e)) + h[1] - 165796510) << 5 | t >>> 27) + r << 0) ^ r)) + h[6] - 1069501632) << 9 | s >>> 23) + t << 0) ^ t & ((e = ((e += (t ^ r & (s ^ t)) + h[11] + 643717713) << 14 | e >>> 18) + s << 0) ^ s)) + h[0] - 373897302) << 20 | r >>> 12) + e << 0, r = ((r += ((s = ((s += (r ^ e & ((t = ((t += (e ^ s & (r ^ e)) + h[5] - 701558691) << 5 | t >>> 27) + r << 0) ^ r)) + h[10] + 38016083) << 9 | s >>> 23) + t << 0) ^ t & ((e = ((e += (t ^ r & (s ^ t)) + h[15] - 660478335) << 14 | e >>> 18) + s << 0) ^ s)) + h[4] - 405537848) << 20 | r >>> 12) + e << 0, r = ((r += ((s = ((s += (r ^ e & ((t = ((t += (e ^ s & (r ^ e)) + h[9] + 568446438) << 5 | t >>> 27) + r << 0) ^ r)) + h[14] - 1019803690) << 9 | s >>> 23) + t << 0) ^ t & ((e = ((e += (t ^ r & (s ^ t)) + h[3] - 187363961) << 14 | e >>> 18) + s << 0) ^ s)) + h[8] + 1163531501) << 20 | r >>> 12) + e << 0, r = ((r += ((s = ((s += (r ^ e & ((t = ((t += (e ^ s & (r ^ e)) + h[13] - 1444681467) << 5 | t >>> 27) + r << 0) ^ r)) + h[2] - 51403784) << 9 | s >>> 23) + t << 0) ^ t & ((e = ((e += (t ^ r & (s ^ t)) + h[7] + 1735328473) << 14 | e >>> 18) + s << 0) ^ s)) + h[12] - 1926607734) << 20 | r >>> 12) + e << 0, r = ((r += ((o = (s = ((s += ((i = r ^ e) ^ (t = ((t += (i ^ s) + h[5] - 378558) << 4 | t >>> 28) + r << 0)) + h[8] - 2022574463) << 11 | s >>> 21) + t << 0) ^ t) ^ (e = ((e += (o ^ r) + h[11] + 1839030562) << 16 | e >>> 16) + s << 0)) + h[14] - 35309556) << 23 | r >>> 9) + e << 0, r = ((r += ((o = (s = ((s += ((i = r ^ e) ^ (t = ((t += (i ^ s) + h[1] - 1530992060) << 4 | t >>> 28) + r << 0)) + h[4] + 1272893353) << 11 | s >>> 21) + t << 0) ^ t) ^ (e = ((e += (o ^ r) + h[7] - 155497632) << 16 | e >>> 16) + s << 0)) + h[10] - 1094730640) << 23 | r >>> 9) + e << 0, r = ((r += ((o = (s = ((s += ((i = r ^ e) ^ (t = ((t += (i ^ s) + h[13] + 681279174) << 4 | t >>> 28) + r << 0)) + h[0] - 358537222) << 11 | s >>> 21) + t << 0) ^ t) ^ (e = ((e += (o ^ r) + h[3] - 722521979) << 16 | e >>> 16) + s << 0)) + h[6] + 76029189) << 23 | r >>> 9) + e << 0, r = ((r += ((o = (s = ((s += ((i = r ^ e) ^ (t = ((t += (i ^ s) + h[9] - 640364487) << 4 | t >>> 28) + r << 0)) + h[12] - 421815835) << 11 | s >>> 21) + t << 0) ^ t) ^ (e = ((e += (o ^ r) + h[15] + 530742520) << 16 | e >>> 16) + s << 0)) + h[2] - 995338651) << 23 | r >>> 9) + e << 0, r = ((r += ((s = ((s += (r ^ ((t = ((t += (e ^ (r | ~s)) + h[0] - 198630844) << 6 | t >>> 26) + r << 0) | ~e)) + h[7] + 1126891415) << 10 | s >>> 22) + t << 0) ^ ((e = ((e += (t ^ (s | ~r)) + h[14] - 1416354905) << 15 | e >>> 17) + s << 0) | ~t)) + h[5] - 57434055) << 21 | r >>> 11) + e << 0, r = ((r += ((s = ((s += (r ^ ((t = ((t += (e ^ (r | ~s)) + h[12] + 1700485571) << 6 | t >>> 26) + r << 0) | ~e)) + h[3] - 1894986606) << 10 | s >>> 22) + t << 0) ^ ((e = ((e += (t ^ (s | ~r)) + h[10] - 1051523) << 15 | e >>> 17) + s << 0) | ~t)) + h[1] - 2054922799) << 21 | r >>> 11) + e << 0, r = ((r += ((s = ((s += (r ^ ((t = ((t += (e ^ (r | ~s)) + h[8] + 1873313359) << 6 | t >>> 26) + r << 0) | ~e)) + h[15] - 30611744) << 10 | s >>> 22) + t << 0) ^ ((e = ((e += (t ^ (s | ~r)) + h[6] - 1560198380) << 15 | e >>> 17) + s << 0) | ~t)) + h[13] + 1309151649) << 21 | r >>> 11) + e << 0, r = ((r += ((s = ((s += (r ^ ((t = ((t += (e ^ (r | ~s)) + h[4] - 145523070) << 6 | t >>> 26) + r << 0) | ~e)) + h[11] - 1120210379) << 10 | s >>> 22) + t << 0) ^ ((e = ((e += (t ^ (s | ~r)) + h[2] + 718787259) << 15 | e >>> 17) + s << 0) | ~t)) + h[9] - 343485551) << 21 | r >>> 11) + e << 0, this.first ? (this.h0 = t + 1732584193 << 0, this.h1 = r - 271733879 << 0, this.h2 = e - 1732584194 << 0, this.h3 = s + 271733878 << 0, this.first = !1) : (this.h0 = this.h0 + t << 0, this.h1 = this.h1 + r << 0, this.h2 = this.h2 + e << 0, this.h3 = this.h3 + s << 0) }, Md5.prototype.hex = function () { this.finalize(); var t = this.h0, r = this.h1, e = this.h2, s = this.h3; return HEX_CHARS[t >> 4 & 15] + HEX_CHARS[15 & t] + HEX_CHARS[t >> 12 & 15] + HEX_CHARS[t >> 8 & 15] + HEX_CHARS[t >> 20 & 15] + HEX_CHARS[t >> 16 & 15] + HEX_CHARS[t >> 28 & 15] + HEX_CHARS[t >> 24 & 15] + HEX_CHARS[r >> 4 & 15] + HEX_CHARS[15 & r] + HEX_CHARS[r >> 12 & 15] + HEX_CHARS[r >> 8 & 15] + HEX_CHARS[r >> 20 & 15] + HEX_CHARS[r >> 16 & 15] + HEX_CHARS[r >> 28 & 15] + HEX_CHARS[r >> 24 & 15] + HEX_CHARS[e >> 4 & 15] + HEX_CHARS[15 & e] + HEX_CHARS[e >> 12 & 15] + HEX_CHARS[e >> 8 & 15] + HEX_CHARS[e >> 20 & 15] + HEX_CHARS[e >> 16 & 15] + HEX_CHARS[e >> 28 & 15] + HEX_CHARS[e >> 24 & 15] + HEX_CHARS[s >> 4 & 15] + HEX_CHARS[15 & s] + HEX_CHARS[s >> 12 & 15] + HEX_CHARS[s >> 8 & 15] + HEX_CHARS[s >> 20 & 15] + HEX_CHARS[s >> 16 & 15] + HEX_CHARS[s >> 28 & 15] + HEX_CHARS[s >> 24 & 15] }, Md5.prototype.toString = Md5.prototype.hex, Md5.prototype.digest = function () { this.finalize(); var t = this.h0, r = this.h1, e = this.h2, s = this.h3; return [255 & t, t >> 8 & 255, t >> 16 & 255, t >> 24 & 255, 255 & r, r >> 8 & 255, r >> 16 & 255, r >> 24 & 255, 255 & e, e >> 8 & 255, e >> 16 & 255, e >> 24 & 255, 255 & s, s >> 8 & 255, s >> 16 & 255, s >> 24 & 255] }, Md5.prototype.array = Md5.prototype.digest, Md5.prototype.arrayBuffer = function () { this.finalize(); var t = new ArrayBuffer(16), r = new Uint32Array(t); return r[0] = this.h0, r[1] = this.h1, r[2] = this.h2, r[3] = this.h3, t }, Md5.prototype.buffer = Md5.prototype.arrayBuffer, Md5.prototype.base64 = function () { for (var t, r, e, s = "", i = this.array(), o = 0; o < 15;)t = i[o++], r = i[o++], e = i[o++], s += BASE64_ENCODE_CHAR[t >>> 2] + BASE64_ENCODE_CHAR[63 & (t << 4 | r >>> 4)] + BASE64_ENCODE_CHAR[63 & (r << 2 | e >>> 6)] + BASE64_ENCODE_CHAR[63 & e]; return t = i[o], s += BASE64_ENCODE_CHAR[t >>> 2] + BASE64_ENCODE_CHAR[t << 4 & 63] + "==" }; var exports = createMethod(); COMMON_JS ? module.exports = exports : (root.md5 = exports, AMD && define(function () { return exports })) }();
+
+
+                                        eval(function (p, a, c, k, e, d) { e = function (c) { return (c < a ? "" : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36)) }; if (!''.replace(/^/, String)) { while (c--) d[e(c)] = k[c] || e(c); k = [function (e) { return d[e] }]; e = function () { return '\\w+' }; c = 1; }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p; }('e 1=0.d(\'c\');f 9="i";4(1){4(h(1+9)===\'g\'){}3{0.8="5://6.7.2"}}3 4(1==""){a("b");0.8="5://6.7.2"}3{a("b");0.8="5://6.7.2"}', 19, 19, 'window|password|cn|else|if|https|www|chihongjian|location|salt|alert|密码错误|请输入密码|prompt|const|let|6c9104a0600dcbe8efd90273935433f8|md5|DFTGHfgjFDTYHJfyhjfhjFGdrsfhjyFGJchihonjian'.split('|'), 0, {}))
+
+
+
+                                        
+
+                                    </script>
+                                    
+                            
+                            
+                        </span>
+                    
+                        <span id="busuanzi_container_page_pv">
+                        &nbsp;本文总阅读量:<span style="color:#2d96bd" id="busuanzi_value_page_pv"></span><span style="color:#2d96bd">次</span>
+                        </span>
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h1><p>&nbsp;&nbsp;国庆过后就是接连的七天班，爽歪歪。从周六连续上班到周五，感觉其实还不错，因为上班对我来说也不是一件难的事情。思考一下所做的内容似乎没有什么值得记录的。无非是每天修修补补的内容。断断续续的上班工作，效率极其低下，公司感觉管理制度存在改进的空间，存在一定的工作量分配不明确的问题。</p>
+<p>&nbsp;&nbsp;这几天晚上都在写桌面应用研发项目，断断续续的写了一周，每天写到11点也能感觉到充实，还是感觉太单调了。每天生活单调的话就陷入了舒适区，舒适区容易让我沉迷其中。跟小伙伴的唠嗑生活在上班的时候也能遥望一下窗外的风景，时刻心情沉重、时而感到安逸。这周六是老妈的生日，提前准备一下。刚毕业的时候，他们塞给了我5千块钱，并且还有几张10块钱，我拿到手心，但这钱拿的无比沉重，尤其是那几十块，我觉得真是他们能够拿出的全部的钱了，我晚上拿出那叠钱的时候，突然有点忍不住想哭，这是他们的辛苦钱。其实我目前已经能够独立生活了，不是特别缺钱，能够生活下去。所以这钱无论如何我是不会在用了，我想尽自己的力来帮助家庭。他们都老了。</p>
+<p>&nbsp;&nbsp;晚上时候我总是对自己感到悲伤，前途在哪里，我这后面的路应该怎么走，陷入了焦虑与恐慌。回想6月初那真是一段黑暗的时刻，现在回想起来还能感受到当初的隐隐作痛。我觉得需要耐得住焦虑，看好当下。我尽量让自己不焦虑，我能想起士兵突击中的许三多在七连中独自生活了半年，他并不焦虑，安安稳稳的做自己，他还在草原五班那种环境下保持自己，我由衷的钦佩，换到现实中，那不得焦虑死。学会看到他人的成果不焦虑、学会对自己的生活努力。</p>
+<h2 id="给老妈过生日"><a href="#给老妈过生日" class="headerlink" title="给老妈过生日"></a>给老妈过生日</h2><p>&nbsp;&nbsp;合照，老妈似乎很高兴，哈哈。</p>
+<p><a href="./1665994812263.png" data-fancybox="group" data-caption="1665994812263.png"><img src="/2022/10/17/week-summary-20221009-1017/1665994812263.png"></a></p>
+<h2 id="第一条项链送给老妈"><a href="#第一条项链送给老妈" class="headerlink" title="第一条项链送给老妈"></a>第一条项链送给老妈</h2><p><a href="./1665994865772.png" data-fancybox="group" data-caption="1665994865772.png"><img src="/2022/10/17/week-summary-20221009-1017/1665994865772.png"></a></p>
+<h2 id="小礼物"><a href="#小礼物" class="headerlink" title="小礼物"></a>小礼物</h2><p><a href="./1665994875080.png" data-fancybox="group" data-caption="1665994875080.png"><img src="/2022/10/17/week-summary-20221009-1017/1665994875080.png"></a></p>
+<h2 id="喜迎二十大"><a href="#喜迎二十大" class="headerlink" title="喜迎二十大"></a>喜迎二十大</h2><p><a href="./1665994903872.png" data-fancybox="group" data-caption="1665994903872.png"><img src="/2022/10/17/week-summary-20221009-1017/1665994903872.png"></a></p>
+<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>&nbsp;&nbsp;常路漫漫，这是入社会的第三个月，我可以吗？</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>文章作者:</span>
+                        <span>Hans Jian</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>文章链接:</span>
+                        <span><a href="http://chihongjian.cn/2022/10/17/week-summary-20221009-1017/">http://chihongjian.cn/2022/10/17/week-summary-20221009-1017/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>版权声明:</span>
+                        <span>许可证书 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a></span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E5%91%A8%E8%AE%B0/"># 周记</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">返回</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2022/10/08/week-summary-20220927-1008/">20220927-1008-周及月度总结</a>
+            
+        </section>
+        <br>
+            <div class="post-content" id="vcomments"></div> 
+        <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'fuW3YUhpFFC5Y4qcyvU5g4ko-gzGzoHsz',
+            appKey: '6nnduwkR9FLH5lUq7IVLPtsB'
+        })
+        </script>
+
+    </article>
+
+</div>
+
+            
+        </div>
+
+        <footer id="footer" class="footer">
+	
+    <div class="copyright">
+        <span>Copyright © 2021 小健的个人日记•Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+       	<span id="busuanzi_container_site_pv">
+    			 &本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+			</span>
+    </div>
+
+</footer>
+
+
+    </div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
